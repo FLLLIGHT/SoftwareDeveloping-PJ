@@ -23,6 +23,11 @@ public class AccountServlet extends HttpServlet {
     private AccountService accountService = new AccountService();
 
     @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) {
+        doPost(request, response);
+    }
+
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) {
         String requestURI = request.getRequestURI();
         String methodName = requestURI.substring(requestURI.lastIndexOf("/") + 1);

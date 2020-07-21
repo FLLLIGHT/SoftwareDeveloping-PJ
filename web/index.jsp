@@ -15,5 +15,7 @@
   <a href="jsp/login.jsp">login</a>
   <br/>
   <a href="jsp/register.jsp">register</a>
+  <br/>
+  <a href="jsp/search.jsp">search</a>
   </body>
 </html>

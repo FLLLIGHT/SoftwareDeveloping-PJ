@@ -13,4 +13,13 @@
         <url-pattern>/account/*</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>imageServlet</servlet-name>
+        <servlet-class>fudan.sd.project.controller.ImageServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>imageServlet</servlet-name>
+        <url-pattern>/image/*</url-pattern>
+    </servlet-mapping>
 </web-app>
