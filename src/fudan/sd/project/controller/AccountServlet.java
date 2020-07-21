@@ -5,6 +5,7 @@ import fudan.sd.project.dao.UserDAOJdbcImpl;
 import fudan.sd.project.entity.User;
 import fudan.sd.project.service.AccountService;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -45,14 +46,18 @@ public class AccountServlet extends HttpServlet {
         response.sendRedirect("/SoftwareDeveloping_PJ_war_exploded/index.jsp");
     }
 
-    private void login(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    private void login(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String userName = request.getParameter("userName");
         String pass = request.getParameter("pass");
         User user = accountService.checkUser(userName, pass);
-        if(user != null){
-            HttpSession session = request.getSession();
-            session.setAttribute("user", user);
+        //todo: 提示登录成功或登录失败
+        //todo: 数据传输加密
+        if(user == null){
+            request.getRequestDispatcher("/jsp/login.jsp").forward(request, response);
+            return;
         }
+        HttpSession session = request.getSession();
+        session.setAttribute("user", user);
         response.sendRedirect("/SoftwareDeveloping_PJ_war_exploded/index.jsp");
     }
 
