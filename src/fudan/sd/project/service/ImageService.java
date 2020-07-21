@@ -4,6 +4,7 @@ import fudan.sd.project.dao.ImageDAO;
 import fudan.sd.project.dao.ImageDAOJdbcImpl;
 import fudan.sd.project.entity.Image;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ImageService {
@@ -40,5 +41,14 @@ public class ImageService {
 
     public Image getImage(int imageId){
         return imageDAO.findImageById(imageId);
+    }
+
+    public List<Image> getCollectedImages(int uid){
+        List<Integer> imageIds = imageDAO.findCollectedImageIdByUid(uid);
+        List<Image> collectedImages = new ArrayList<>();
+        for(int imageId : imageIds){
+            collectedImages.add(imageDAO.findImageById(imageId));
+        }
+        return collectedImages;
     }
 }

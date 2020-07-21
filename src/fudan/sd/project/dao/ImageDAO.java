@@ -10,7 +10,7 @@ public interface ImageDAO {
 
     public void update(Image image);
 
-    public Image findImageById(int uid);
+    public Image findImageById(int imageId);
 
     public List<Image> findImagesByTitleAndHeat(String search);
 
@@ -22,4 +22,5 @@ public interface ImageDAO {
 
     public void collect(int uid, int imageId);
 
+    public List<Integer> findCollectedImageIdByUid(int uid);
 }

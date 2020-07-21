@@ -2,6 +2,7 @@ package fudan.sd.project.dao;
 
 import fudan.sd.project.entity.Image;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ImageDAOJdbcImpl extends DAO<Image> implements ImageDAO{
@@ -54,5 +55,16 @@ public class ImageDAOJdbcImpl extends DAO<Image> implements ImageDAO{
     public void collect(int uid, int imageId) {
         String sql = "INSERT INTO travelimagefavor(uid, imageId) VALUES(?, ?)";
         update(sql, uid, imageId);
+    }
+
+    @Override
+    public List<Integer> findCollectedImageIdByUid(int uid) {
+        String sql = "SELECT imageId FROM travelimagefavor WHERE uid = ?";
+        List<Object[]> objects = getForListWithInteger(sql, uid);
+        List<Integer> imageIds = new ArrayList<>();
+        for(Object[] object : objects){
+            imageIds.add((Integer) object[0]);
+        }
+        return imageIds;
     }
 }

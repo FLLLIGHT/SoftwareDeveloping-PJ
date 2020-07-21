@@ -2,6 +2,7 @@ package fudan.sd.project.dao;
 
 import fudan.sd.project.utils.JdbcUtils;
 import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.ArrayListHandler;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
@@ -43,6 +44,15 @@ public class DAO<T> {
     public List<T> getForList(String sql, Object ... args){
         try(Connection connection = JdbcUtils.getConnection()){
             return queryRunner.query(connection, sql, new BeanListHandler<>(clazz), args);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public List<Object[]> getForListWithInteger(String sql, Object ... args){
+        try(Connection connection = JdbcUtils.getConnection()){
+            return queryRunner.query(connection, sql, new ArrayListHandler(), args);
         }catch (Exception e){
             e.printStackTrace();
         }

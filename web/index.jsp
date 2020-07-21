@@ -17,5 +17,7 @@
   <a href="jsp/register.jsp">register</a>
   <br/>
   <a href="jsp/search.jsp">search</a>
+  <br/>
+  <a href="/SoftwareDeveloping_PJ_war_exploded/image/queryCollectedImages">collection</a>
   </body>
 </html>
