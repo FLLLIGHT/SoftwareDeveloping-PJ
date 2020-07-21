@@ -11,6 +11,10 @@
     <title>login</title>
 </head>
 <body>
-
+<form action="/SoftwareDeveloping_PJ_war_exploded/account/login" method="post">
+    username: <input type="text" name="userName">
+    password: <input type="text" name="pass">
+    <input type="submit" value="submit">
+</form>
 </body>
 </html>

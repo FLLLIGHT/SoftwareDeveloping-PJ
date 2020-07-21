@@ -3,11 +3,13 @@ package fudan.sd.project.controller;
 import fudan.sd.project.dao.UserDAO;
 import fudan.sd.project.dao.UserDAOJdbcImpl;
 import fudan.sd.project.entity.User;
+import fudan.sd.project.service.AccountService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.Date;
@@ -17,13 +19,12 @@ public class AccountServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     private UserDAO userDAO = new UserDAOJdbcImpl();
+    private AccountService accountService = new AccountService();
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) {
         String requestURI = request.getRequestURI();
-        System.out.println(requestURI);
         String methodName = requestURI.substring(requestURI.lastIndexOf("/") + 1);
-        System.out.println(methodName);
 
         try {
             Method method = getClass().getDeclaredMethod(methodName, HttpServletRequest.class, HttpServletResponse.class);
@@ -41,6 +42,17 @@ public class AccountServlet extends HttpServlet {
 
         userDAO.save(user);
 
+        response.sendRedirect("/SoftwareDeveloping_PJ_war_exploded/index.jsp");
+    }
+
+    private void login(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String userName = request.getParameter("userName");
+        String pass = request.getParameter("pass");
+        User user = accountService.checkUser(userName, pass);
+        if(user != null){
+            HttpSession session = request.getSession();
+            session.setAttribute("user", user);
+        }
         response.sendRedirect("/SoftwareDeveloping_PJ_war_exploded/index.jsp");
     }
 

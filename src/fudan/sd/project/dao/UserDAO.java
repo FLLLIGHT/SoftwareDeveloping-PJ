@@ -12,6 +12,8 @@ public interface UserDAO {
 
     public User get(int uid);
 
+    public User get(String userName);
+
     public void delete(int uid);
 
     public long getCountWithName(String username);

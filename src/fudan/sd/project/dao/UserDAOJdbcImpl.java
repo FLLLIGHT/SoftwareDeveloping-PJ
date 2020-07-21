@@ -25,6 +25,12 @@ public class UserDAOJdbcImpl extends DAO<User> implements UserDAO{
     }
 
     @Override
+    public User get(String userName) {
+        String sql = "SELECT uid, email, userName, pass, state, dateJoined, dateLastModified FROM traveluser WHERE userName = ?";
+        return get(sql, userName);
+    }
+
+    @Override
     public void delete(int uid) {
         String sql = "DELETE FROM traveluser WHERE uid = ?";
         update(sql, uid);
