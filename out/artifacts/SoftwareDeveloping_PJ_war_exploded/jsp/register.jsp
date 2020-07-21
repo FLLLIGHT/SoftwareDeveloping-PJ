@@ -11,7 +11,7 @@
     <title>register</title>
 </head>
 <body>
-<form action="/SoftwareDeveloping_PJ_war_exploded/registerServlet" method="post">
+<form action="/SoftwareDeveloping_PJ_war_exploded/account/register" method="post">
     email: <input type="text" name="email">
     username: <input type="text" name="userName">
     password: <input type="text" name="pass">

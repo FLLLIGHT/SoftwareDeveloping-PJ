@@ -4,13 +4,13 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
     <servlet>
-        <servlet-name>registerServlet</servlet-name>
-        <servlet-class>fudan.sd.project.controller.RegisterServlet</servlet-class>
+        <servlet-name>accountServlet</servlet-name>
+        <servlet-class>fudan.sd.project.controller.AccountServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>registerServlet</servlet-name>
-        <url-pattern>/registerServlet</url-pattern>
+        <servlet-name>accountServlet</servlet-name>
+        <url-pattern>/account/*</url-pattern>
     </servlet-mapping>
 
 </web-app>
