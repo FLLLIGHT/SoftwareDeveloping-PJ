@@ -22,5 +22,7 @@ public interface ImageDAO {
 
     public void collect(int uid, int imageId);
 
+    public void removeCollected(int uid, int imageId);
+
     public List<Integer> findCollectedImageIdByUid(int uid);
 }

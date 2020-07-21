@@ -41,9 +41,6 @@ public class ImageServlet extends HttpServlet {
         String select = request.getParameter("select");
         String sort = request.getParameter("sort");
 
-        System.out.println(select);
-        System.out.println(sort);
-
         List<Image> images = imageService.queryImages(search, select, sort);
 
         request.setAttribute("images", images);
@@ -52,10 +49,19 @@ public class ImageServlet extends HttpServlet {
     }
 
     private void queryImageDetail(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+
         int imageId = Integer.parseInt(request.getParameter("imageId"));
 
         Image image = imageService.queryImageDetail(imageId);
         request.setAttribute("image", image);
+
+        HttpSession session = request.getSession();
+        User user = (User)session.getAttribute("user");
+        if(user!=null) {
+            int uid = user.getUid();
+            boolean isCollected = imageService.isCollected(uid, imageId);
+            request.setAttribute("isCollected", isCollected);
+        }
 
         request.getRequestDispatcher("/jsp/detail.jsp").forward(request, response);
     }
@@ -71,6 +77,22 @@ public class ImageServlet extends HttpServlet {
 
         Image image = imageService.getImage(imageId);
         image.setHeat(image.getHeat()+1);
+        imageService.saveImage(image);
+
+        response.sendRedirect("/SoftwareDeveloping_PJ_war_exploded/index.jsp");
+    }
+
+    private void removeCollectedImage(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        int imageId = Integer.parseInt(request.getParameter("imageId"));
+
+        HttpSession session = request.getSession();
+        User user = (User)session.getAttribute("user");
+        int uid = user.getUid();
+
+        imageService.removeCollectedImage(uid, imageId);
+
+        Image image = imageService.getImage(imageId);
+        image.setHeat(image.getHeat()-1);
         imageService.saveImage(image);
 
         response.sendRedirect("/SoftwareDeveloping_PJ_war_exploded/index.jsp");

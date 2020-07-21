@@ -35,6 +35,10 @@ public class ImageService {
         imageDAO.collect(uid, imageId);
     }
 
+    public void removeCollectedImage(int uid, int imageId){
+        imageDAO.removeCollected(uid, imageId);
+    }
+
     public void saveImage(Image image){
         imageDAO.update(image);
     }
@@ -50,5 +54,15 @@ public class ImageService {
             collectedImages.add(imageDAO.findImageById(imageId));
         }
         return collectedImages;
+    }
+
+    public boolean isCollected(int uid, int imageId){
+        List<Integer> imageIds = imageDAO.findCollectedImageIdByUid(uid);
+        for(int imageIdToTest : imageIds){
+            if(imageIdToTest == imageId){
+                return true;
+            }
+        }
+        return false;
     }
 }

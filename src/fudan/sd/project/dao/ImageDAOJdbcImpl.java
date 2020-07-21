@@ -58,6 +58,12 @@ public class ImageDAOJdbcImpl extends DAO<Image> implements ImageDAO{
     }
 
     @Override
+    public void removeCollected(int uid, int imageId) {
+        String sql = "DELETE FROM travelimagefavor WHERE uid = ? AND imageId = ?";
+        update(sql, uid, imageId);
+    }
+
+    @Override
     public List<Integer> findCollectedImageIdByUid(int uid) {
         String sql = "SELECT imageId FROM travelimagefavor WHERE uid = ?";
         List<Object[]> objects = getForListWithInteger(sql, uid);
