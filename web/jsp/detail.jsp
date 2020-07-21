@@ -22,6 +22,7 @@ description: ${requestScope.image.description}
 <br/>
 image: <img src="../images/${requestScope.image.path}">
 <br/>
+<a href="/SoftwareDeveloping_PJ_war_exploded/image/collectImage?imageId=${requestScope.image.imageId}">collect</a>
 <br/>
 <br/>
 

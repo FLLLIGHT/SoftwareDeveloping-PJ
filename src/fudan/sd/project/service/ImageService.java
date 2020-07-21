@@ -29,4 +29,16 @@ public class ImageService {
     public Image queryImageDetail(int imageId){
         return imageDAO.findImageById(imageId);
     }
+
+    public void collectImage(int uid, int imageId){
+        imageDAO.collect(uid, imageId);
+    }
+
+    public void saveImage(Image image){
+        imageDAO.update(image);
+    }
+
+    public Image getImage(int imageId){
+        return imageDAO.findImageById(imageId);
+    }
 }

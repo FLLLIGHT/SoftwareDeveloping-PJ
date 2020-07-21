@@ -8,6 +8,8 @@ public interface ImageDAO {
 
     public void save(Image image);
 
+    public void update(Image image);
+
     public Image findImageById(int uid);
 
     public List<Image> findImagesByTitleAndHeat(String search);
@@ -17,5 +19,7 @@ public interface ImageDAO {
     public List<Image> findImagesByTitleAndTime(String search);
 
     public List<Image> findImagesBySubjectAndTime(String search);
+
+    public void collect(int uid, int imageId);
 
 }

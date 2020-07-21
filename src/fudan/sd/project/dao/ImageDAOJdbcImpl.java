@@ -14,6 +14,13 @@ public class ImageDAOJdbcImpl extends DAO<Image> implements ImageDAO{
     }
 
     @Override
+    public void update(Image image) {
+        String sql = "UPDATE travelimage SET title = ?, description = ?, uid = ?, path = ?, content = ?, heat = ?, dateJoined = ?, dateLastModified = ?, country = ?, city = ?, author = ? WHERE imageId = ?";
+        update(sql, image.getTitle(), image.getDescription(), image.getUid(), image.getPath(), image.getContent(),
+                image.getHeat(), image.getDateJoined(), image.getDateLastModified(), image.getCountry(), image.getCity(), image.getAuthor(), image.getImageId());
+    }
+
+    @Override
     public Image findImageById(int imageId) {
         String sql = "SELECT imageId, title, description, uid, path, content, heat, dateJoined, dateLastModified, country, city, author FROM travelimage WHERE imageId = ?";
         return get(sql, imageId);
@@ -41,5 +48,11 @@ public class ImageDAOJdbcImpl extends DAO<Image> implements ImageDAO{
     public List<Image> findImagesBySubjectAndTime(String search) {
         String sql = "SELECT imageId, title, description, uid, path, content, heat, dateJoined, dateLastModified, country, city, author FROM travelimage WHERE content LIKE ? ORDER BY dateLastModified DESC";
         return getForList(sql, search == null ? "%%" : "%" + search + "%");
+    }
+
+    @Override
+    public void collect(int uid, int imageId) {
+        String sql = "INSERT INTO travelimagefavor(uid, imageId) VALUES(?, ?)";
+        update(sql, uid, imageId);
     }
 }

@@ -1,12 +1,14 @@
 package fudan.sd.project.controller;
 
 import fudan.sd.project.entity.Image;
+import fudan.sd.project.entity.User;
 import fudan.sd.project.service.ImageService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.List;
@@ -56,5 +58,22 @@ public class ImageServlet extends HttpServlet {
         request.setAttribute("image", image);
 
         request.getRequestDispatcher("/jsp/detail.jsp").forward(request, response);
+    }
+
+    private void collectImage(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        int imageId = Integer.parseInt(request.getParameter("imageId"));
+
+        HttpSession session = request.getSession();
+        User user = (User)session.getAttribute("user");
+        int uid = user.getUid();
+
+        imageService.collectImage(uid, imageId);
+
+        Image image = imageService.getImage(imageId);
+        image.setHeat(image.getHeat()+1);
+        imageService.saveImage(image);
+
+        response.sendRedirect("/SoftwareDeveloping_PJ_war_exploded/index.jsp");
+
     }
 }
