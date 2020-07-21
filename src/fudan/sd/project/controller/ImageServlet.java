@@ -42,10 +42,19 @@ public class ImageServlet extends HttpServlet {
         System.out.println(select);
         System.out.println(sort);
 
-        List<Image> images = imageService.queryImage(search, select, sort);
+        List<Image> images = imageService.queryImages(search, select, sort);
 
         request.setAttribute("images", images);
 
         request.getRequestDispatcher("/jsp/search.jsp").forward(request, response);
+    }
+
+    private void queryImageDetail(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        int imageId = Integer.parseInt(request.getParameter("imageId"));
+
+        Image image = imageService.queryImageDetail(imageId);
+        request.setAttribute("image", image);
+
+        request.getRequestDispatcher("/jsp/detail.jsp").forward(request, response);
     }
 }

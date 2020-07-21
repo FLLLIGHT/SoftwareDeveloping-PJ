@@ -10,7 +10,7 @@ public class ImageService {
 
     private ImageDAO imageDAO = new ImageDAOJdbcImpl();
 
-    public List<Image> queryImage(String search, String select, String sort){
+    public List<Image> queryImages(String search, String select, String sort){
         if(select.equals("title") && sort.equals("heat")){
             return imageDAO.findImagesByTitleAndHeat(search);
         }
@@ -24,5 +24,9 @@ public class ImageService {
             return imageDAO.findImagesBySubjectAndTime(search);
         }
         return null;
+    }
+
+    public Image queryImageDetail(int imageId){
+        return imageDAO.findImageById(imageId);
     }
 }

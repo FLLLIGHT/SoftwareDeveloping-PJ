@@ -14,9 +14,9 @@ public class ImageDAOJdbcImpl extends DAO<Image> implements ImageDAO{
     }
 
     @Override
-    public Image findImageById(int uid) {
-        String sql = "SELECT * FROM travelimage WHERE uid = ?";
-        return get(sql, uid);
+    public Image findImageById(int imageId) {
+        String sql = "SELECT imageId, title, description, uid, path, content, heat, dateJoined, dateLastModified, country, city, author FROM travelimage WHERE imageId = ?";
+        return get(sql, imageId);
     }
 
     @Override

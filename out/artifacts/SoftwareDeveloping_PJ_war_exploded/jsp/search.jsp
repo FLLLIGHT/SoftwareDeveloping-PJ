@@ -30,6 +30,10 @@
     <br/>
     description: ${images.description}
     <br/>
+    <a href="/SoftwareDeveloping_PJ_war_exploded/image/queryImageDetail?imageId=${images.imageId}">detail</a>
+    <br/>
+    image: <img src="../images/${images.path}">
+    <br/>
     <br/>
     <br/>
 </c:forEach>
