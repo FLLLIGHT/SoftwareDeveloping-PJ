@@ -19,7 +19,6 @@ public class AccountServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
 
-    private UserDAO userDAO = new UserDAOJdbcImpl();
     private AccountService accountService = new AccountService();
 
     @Override
@@ -46,7 +45,12 @@ public class AccountServlet extends HttpServlet {
         String password = request.getParameter("pass");
         User user = new User(email, userName, password, 1, new Date(), new Date());
 
-        userDAO.save(user);
+        //todo: 用户名重复的提示
+        if(!accountService.isRepeated(userName)) {
+            accountService.doRegister(user);
+            HttpSession session = request.getSession();
+            session.setAttribute("user", user);
+        }
 
         response.sendRedirect("/SoftwareDeveloping_PJ_war_exploded/index.jsp");
     }

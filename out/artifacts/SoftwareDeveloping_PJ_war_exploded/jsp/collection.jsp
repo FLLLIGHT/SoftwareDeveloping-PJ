@@ -14,6 +14,7 @@
 <body>
 <c:if test="${requestScope.friend!=null}">
     friend ${requestScope.friend.userName}'s collection
+    <br/>
 </c:if>
 <c:forEach items="${requestScope.collectedImages}" var="images">
     id: ${images.imageId}

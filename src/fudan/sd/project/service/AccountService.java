@@ -21,4 +21,13 @@ public class AccountService {
         System.out.println("password false");
         return null;
     }
+
+    public boolean isRepeated(String userName){
+        User user = userDAO.get(userName);
+        return user != null;
+    }
+
+    public void doRegister(User user){
+        userDAO.save(user);
+    }
 }
