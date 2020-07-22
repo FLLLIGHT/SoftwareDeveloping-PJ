@@ -10,6 +10,8 @@ public interface ImageDAO {
 
     public void update(Image image);
 
+    public void delete(int imageId);
+
     public Image findImageById(int imageId);
 
     public List<Image> findUploadedImagesByUid(int uid);

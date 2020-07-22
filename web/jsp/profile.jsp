@@ -23,7 +23,7 @@
     <br/>
     <a href="/SoftwareDeveloping_PJ_war_exploded/image/jumpToEditUploadedImage?imageId=${images.imageId}">edit</a>
     <br/>
-    <a href="/SoftwareDeveloping_PJ_war_exploded/image/removeCollectedImage?imageId=${images.imageId}">remove</a>
+    <a href="/SoftwareDeveloping_PJ_war_exploded/image/removeUploadedImage?imageId=${images.imageId}">remove</a>
     <br/>
     image: <img src="../images/${images.path}">
     <br/>

@@ -128,6 +128,7 @@ public class ImageServlet extends HttpServlet {
         List<FileItem> items = upload.parseRequest(request);
 
         String fileName = imageService.uploadImage(items, prefix);
+        //todo: 预显示已上传的图片
         imageService.saveImageInfo(items, uid, fileName);
 
         response.sendRedirect("/SoftwareDeveloping_PJ_war_exploded/index.jsp");
@@ -153,5 +154,12 @@ public class ImageServlet extends HttpServlet {
 
         request.getRequestDispatcher("/jsp/upload.jsp").forward(request, response);
 
+    }
+
+    private void removeUploadedImage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int imageId = Integer.parseInt(request.getParameter("imageId"));
+        imageService.removeUploadedImage(imageId);
+
+        response.sendRedirect("/SoftwareDeveloping_PJ_war_exploded/index.jsp");
     }
 }

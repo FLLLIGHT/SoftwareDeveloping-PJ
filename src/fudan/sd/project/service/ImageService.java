@@ -158,4 +158,8 @@ public class ImageService {
     public List<Image> getUploadedImages(int uid){
         return imageDAO.findUploadedImagesByUid(uid);
     }
+
+    public void removeUploadedImage(int imageId){
+        imageDAO.delete(imageId);
+    }
 }

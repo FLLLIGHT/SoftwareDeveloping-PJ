@@ -22,6 +22,12 @@ public class ImageDAOJdbcImpl extends DAO<Image> implements ImageDAO{
     }
 
     @Override
+    public void delete(int imageId) {
+        String sql = "DELETE FROM travelimage WHERE imageId = ?";
+        update(sql, imageId);
+    }
+
+    @Override
     public Image findImageById(int imageId) {
         String sql = "SELECT imageId, title, description, uid, path, content, heat, dateJoined, dateLastModified, country, city, author FROM travelimage WHERE imageId = ?";
         return get(sql, imageId);
