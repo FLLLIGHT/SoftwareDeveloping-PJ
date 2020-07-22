@@ -15,6 +15,8 @@
           <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/lib/c3p0-0.9.5.5.jar" />
           <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/lib/commons-dbutils-1.7.jar" />
           <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/lib/mchange-commons-java-0.2.19.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/lib/commons-io-2.7.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/lib/commons-fileupload-1.4.jar" />
         </element>
       </element>
     </root>

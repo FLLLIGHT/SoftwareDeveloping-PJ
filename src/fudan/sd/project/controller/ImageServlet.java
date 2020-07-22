@@ -3,7 +3,13 @@ package fudan.sd.project.controller;
 import fudan.sd.project.entity.Image;
 import fudan.sd.project.entity.User;
 import fudan.sd.project.service.ImageService;
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.FileItemFactory;
+import org.apache.commons.fileupload.FileUploadException;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -106,5 +112,25 @@ public class ImageServlet extends HttpServlet {
         request.setAttribute("collectedImages", imageService.getCollectedImages(uid));
 
         request.getRequestDispatcher("/jsp/collection.jsp").forward(request, response);
+    }
+
+    private void uploadImage(HttpServletRequest request, HttpServletResponse response) throws FileUploadException, IOException {
+        HttpSession session = request.getSession();
+        User user = (User)session.getAttribute("user");
+        int uid = user.getUid();
+
+        //当前web应用的路径
+        ServletContext servletContext = session.getServletContext();
+        String prefix = servletContext.getRealPath("/") + "images/";
+
+        FileItemFactory factory = new DiskFileItemFactory();
+        ServletFileUpload upload = new ServletFileUpload(factory);
+        List<FileItem> items = upload.parseRequest(request);
+
+        String fileName = imageService.uploadImage(items, prefix);
+        imageService.saveImageInfo(items, uid, fileName);
+
+        response.sendRedirect("/SoftwareDeveloping_PJ_war_exploded/index.jsp");
+
     }
 }

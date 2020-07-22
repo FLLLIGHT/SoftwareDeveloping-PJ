@@ -3,8 +3,13 @@ package fudan.sd.project.service;
 import fudan.sd.project.dao.ImageDAO;
 import fudan.sd.project.dao.ImageDAOJdbcImpl;
 import fudan.sd.project.entity.Image;
+import org.apache.commons.fileupload.FileItem;
 
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class ImageService {
@@ -64,5 +69,69 @@ public class ImageService {
             }
         }
         return false;
+    }
+
+    public String uploadImage(List<FileItem> items, String prefix){
+        String fileName = "";
+        for(FileItem item : items){
+            if(!item.isFormField()){
+                fileName = item.getName();
+                fileName = System.currentTimeMillis() + fileName;
+
+//                //todo: 绝对路径前缀改为服务器对应路径
+//                String prefix = "/usr/local/";
+                String filePath = prefix + fileName;
+
+                try(InputStream inputStream = item.getInputStream();
+                    OutputStream outputStream = new FileOutputStream(filePath)){
+                    int len = 0;
+                    byte[] buffer = new byte[1024];
+                    while((len = inputStream.read(buffer)) != -1){
+                        outputStream.write(buffer, 0, len);
+                    }
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+        }
+        return fileName;
+    }
+
+    public void saveImageInfo(List<FileItem> items, int uid, String fileName) {
+        String title = "";
+        String description = "";
+        String content = "";
+        int heat = 0;
+        Date dateJoined = new Date();
+        Date dateLastModified = new Date();
+        String country = "";
+        String city = "";
+        String author = "";
+        for (FileItem item : items) {
+            if (item.isFormField()) {
+                switch (item.getFieldName()) {
+                    case "title":
+                        title = item.getString();
+                        break;
+                    case "description":
+                        description = item.getString();
+                        break;
+                    case "subject":
+                        content = item.getString();
+                        break;
+                    case "country":
+                        country = item.getString();
+                        break;
+                    case "city":
+                        city = item.getString();
+                        break;
+                    case "author":
+                        author = item.getString();
+                        break;
+                }
+            }
+        }
+        Image image = new Image(title, description, uid, fileName, content, heat, dateJoined, dateLastModified, country, city, author);
+        imageDAO.save(image);
     }
 }

@@ -19,5 +19,7 @@
   <a href="jsp/search.jsp">search</a>
   <br/>
   <a href="/SoftwareDeveloping_PJ_war_exploded/image/queryCollectedImages">collection</a>
+  <br/>
+  <a href="jsp/upload.jsp">upload</a>
   </body>
 </html>
