@@ -21,7 +21,7 @@
     <br/>
     <a href="/SoftwareDeveloping_PJ_war_exploded/image/queryImageDetail?imageId=${images.imageId}">detail</a>
     <br/>
-    <a href="/SoftwareDeveloping_PJ_war_exploded/image/removeCollectedImage?imageId=${requestScope.image.imageId}">remove</a>
+    <a href="/SoftwareDeveloping_PJ_war_exploded/image/removeCollectedImage?imageId=${images.imageId}">remove</a>
     <br/>
     image: <img src="../images/${images.path}">
     <br/>
