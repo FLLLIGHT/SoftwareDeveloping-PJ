@@ -72,9 +72,9 @@ public class ImageService {
     }
 
     public String uploadImage(List<FileItem> items, String prefix){
-        String fileName = "";
+        String fileName = null;
         for(FileItem item : items){
-            if(!item.isFormField()){
+            if(!item.isFormField()&&!item.getName().equals("")){
                 fileName = item.getName();
                 fileName = System.currentTimeMillis() + fileName;
 
@@ -107,6 +107,8 @@ public class ImageService {
         String country = "";
         String city = "";
         String author = "";
+        int imageId = -1;
+
         for (FileItem item : items) {
             if (item.isFormField()) {
                 switch (item.getFieldName()) {
@@ -128,11 +130,29 @@ public class ImageService {
                     case "author":
                         author = item.getString();
                         break;
+                    case "imageId":
+                        imageId = Integer.parseInt(item.getString());
+                        break;
                 }
             }
         }
-        Image image = new Image(title, description, uid, fileName, content, heat, dateJoined, dateLastModified, country, city, author);
-        imageDAO.save(image);
+
+        if(imageId != -1){
+            System.out.println("update");
+            Image oldImage = getImage(imageId);
+            heat = oldImage.getHeat();
+            dateJoined = oldImage.getDateJoined();
+            //若fileName为null，说明没有更新图片文件，所以不用更新path，取oldPath；若不是null，则说明更新了图片，取新path
+            fileName = (fileName == null ? oldImage.getPath() : fileName);
+            Image image = new Image(title, description, uid, fileName, content, heat, dateJoined, dateLastModified, country, city, author);
+            image.setImageId(oldImage.getImageId());
+            imageDAO.update(image);
+        }else{
+            System.out.println("save");
+            Image image = new Image(title, description, uid, fileName, content, heat, dateJoined, dateLastModified, country, city, author);
+            imageDAO.save(image);
+        }
+
     }
 
     public List<Image> getUploadedImages(int uid){

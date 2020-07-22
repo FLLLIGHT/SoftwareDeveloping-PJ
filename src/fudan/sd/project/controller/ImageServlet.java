@@ -142,4 +142,16 @@ public class ImageServlet extends HttpServlet {
 
         request.getRequestDispatcher("/jsp/profile.jsp").forward(request, response);
     }
+
+    private void jumpToEditUploadedImage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        //todo:验证修改者身份
+
+        int imageId = Integer.parseInt(request.getParameter("imageId"));
+
+        Image image = imageService.queryImageDetail(imageId);
+        request.setAttribute("image", image);
+
+        request.getRequestDispatcher("/jsp/upload.jsp").forward(request, response);
+
+    }
 }
