@@ -17,4 +17,10 @@ public interface UserDAO {
     public void delete(int uid);
 
     public long getCountWithName(String username);
+
+    public void sendOrAcceptFriendInvitation(int uid1, int uid2);
+
+    public List<Integer> findToUid(int uid);
+
+    public List<Integer> findGetUid(int uid);
 }

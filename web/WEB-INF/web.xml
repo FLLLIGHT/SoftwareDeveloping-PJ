@@ -22,4 +22,14 @@
         <servlet-name>imageServlet</servlet-name>
         <url-pattern>/image/*</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>friendServlet</servlet-name>
+        <servlet-class>fudan.sd.project.controller.FriendServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>friendServlet</servlet-name>
+        <url-pattern>/friend/*</url-pattern>
+    </servlet-mapping>
 </web-app>

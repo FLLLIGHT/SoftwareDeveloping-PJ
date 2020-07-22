@@ -23,5 +23,7 @@
   <a href="jsp/upload.jsp">upload</a>
   <br/>
   <a href="/SoftwareDeveloping_PJ_war_exploded/image/queryUploadedImages">profile</a>
+  <br/>
+  <a href="/SoftwareDeveloping_PJ_war_exploded/friend/jumpToFriendPage">friend</a>
   </body>
 </html>
