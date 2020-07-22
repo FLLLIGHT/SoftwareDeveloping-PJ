@@ -12,6 +12,10 @@
     <title>collection</title>
 </head>
 <body>
+<c:if test="${requestScope.friend!=null}">
+    friend ${requestScope.friend.userName}'s collection
+    <br/>
+</c:if>
 <c:forEach items="${requestScope.collectedImages}" var="images">
     id: ${images.imageId}
     <br/>
@@ -21,7 +25,9 @@
     <br/>
     <a href="/SoftwareDeveloping_PJ_war_exploded/image/queryImageDetail?imageId=${images.imageId}">detail</a>
     <br/>
+    <c:if test="${requestScope.friend==null}">
     <a href="/SoftwareDeveloping_PJ_war_exploded/image/removeCollectedImage?imageId=${images.imageId}">remove</a>
+    </c:if>
     <br/>
     image: <img src="../images/${images.path}">
     <br/>

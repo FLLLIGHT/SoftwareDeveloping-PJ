@@ -16,6 +16,10 @@ public class FriendService {
         return userDAO.get(userName);
     }
 
+    public User getUser(int uid){
+        return userDAO.get(uid);
+    }
+
     public void sendFriendInvitation(int uid1, int uid2){
         userDAO.sendOrAcceptFriendInvitation(uid1, uid2);
     }

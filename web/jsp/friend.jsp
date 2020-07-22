@@ -30,6 +30,8 @@ friend:
 <c:forEach items="${requestScope.friends}" var="friend">
     username: ${friend.userName}
     <br/>
+    <a href="/SoftwareDeveloping_PJ_war_exploded/image/queryCollectedImages?friendId=${friend.uid}">collection</a>
+    <br/>
 </c:forEach>
 <br/>
 --------------------

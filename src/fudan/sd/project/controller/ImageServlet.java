@@ -2,6 +2,8 @@ package fudan.sd.project.controller;
 
 import fudan.sd.project.entity.Image;
 import fudan.sd.project.entity.User;
+import fudan.sd.project.service.AccountService;
+import fudan.sd.project.service.FriendService;
 import fudan.sd.project.service.ImageService;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileItemFactory;
@@ -23,6 +25,7 @@ public class ImageServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
     private ImageService imageService = new ImageService();
+    private FriendService friendService = new FriendService();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) {
@@ -108,6 +111,13 @@ public class ImageServlet extends HttpServlet {
         HttpSession session = request.getSession();
         User user = (User)session.getAttribute("user");
         int uid = user.getUid();
+
+        //展示好友收藏
+        if(request.getParameter("friendId")!=null){
+            uid = Integer.parseInt(request.getParameter("friendId"));
+            User friend = friendService.getUser(uid);
+            request.setAttribute("friend", friend);
+        }
 
         request.setAttribute("collectedImages", imageService.getCollectedImages(uid));
 
