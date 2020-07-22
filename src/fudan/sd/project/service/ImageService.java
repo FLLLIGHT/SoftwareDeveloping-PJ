@@ -134,4 +134,8 @@ public class ImageService {
         Image image = new Image(title, description, uid, fileName, content, heat, dateJoined, dateLastModified, country, city, author);
         imageDAO.save(image);
     }
+
+    public List<Image> getUploadedImages(int uid){
+        return imageDAO.findUploadedImagesByUid(uid);
+    }
 }

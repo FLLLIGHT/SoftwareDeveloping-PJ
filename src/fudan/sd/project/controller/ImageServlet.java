@@ -131,6 +131,15 @@ public class ImageServlet extends HttpServlet {
         imageService.saveImageInfo(items, uid, fileName);
 
         response.sendRedirect("/SoftwareDeveloping_PJ_war_exploded/index.jsp");
+    }
 
+    private void queryUploadedImages(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        User user = (User)session.getAttribute("user");
+        int uid = user.getUid();
+
+        request.setAttribute("uploadedImages", imageService.getUploadedImages(uid));
+
+        request.getRequestDispatcher("/jsp/profile.jsp").forward(request, response);
     }
 }

@@ -14,13 +14,21 @@
 <form action="/SoftwareDeveloping_PJ_war_exploded/image/uploadImage" method="post" enctype="multipart/form-data">
 
     title: <input type="text" name="title">
+    <br/>
     description: <input type="text" name="description">
+    <br/>
     subject: <input type="text" name="subject">
+    <br/>
     country: <input type="text" name="country">
+    <br/>
     city: <input type="text" name="city">
+    <br/>
     author: <input type="text" name="author">
+    <br/>
     image: <input type="file" name="image">
+    <br/>
     <input type="submit" value="submit">
+    <br/>
 
 </form>
 </body>

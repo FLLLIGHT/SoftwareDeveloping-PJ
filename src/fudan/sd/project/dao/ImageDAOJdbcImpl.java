@@ -28,6 +28,12 @@ public class ImageDAOJdbcImpl extends DAO<Image> implements ImageDAO{
     }
 
     @Override
+    public List<Image> findUploadedImagesByUid(int uid) {
+        String sql = "SELECT imageId, title, description, uid, path, content, heat, dateJoined, dateLastModified, country, city, author FROM travelimage WHERE uid = ?";
+        return getForList(sql, uid);
+    }
+
+    @Override
     public List<Image> findImagesByTitleAndHeat(String search) {
         String sql = "SELECT imageId, title, description, uid, path, content, heat, dateJoined, dateLastModified, country, city, author FROM travelimage WHERE title LIKE ? ORDER BY heat DESC";
         return getForList(sql, search == null ? "%%" : "%" + search + "%");

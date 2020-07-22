@@ -12,6 +12,8 @@ public interface ImageDAO {
 
     public Image findImageById(int imageId);
 
+    public List<Image> findUploadedImagesByUid(int uid);
+
     public List<Image> findImagesByTitleAndHeat(String search);
 
     public List<Image> findImagesBySubjectAndHeat(String search);
