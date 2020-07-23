@@ -1,0 +1,199 @@
+.navbar-light .navbar-brand {
+    color: rgba(0, 0, 0, 0.9);
+    color: black !important;
+    font-weight: 600;
+}
+
+.navbar-expand-lg{
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+    background-color:rgb(104,88,91);
+}
+
+.justify-content-end{
+    margin-left: 50%;
+    font-size: 17px;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: black !important;
+    background-color: rgb(250,226,180) !important;
+    box-shadow: 0 .3rem .5rem rgba(0,0,0,.15)!important;
+}
+
+li:hover .dropdown-menu {
+    display: block;
+}
+.dropdown-menu {
+    top: 80%;
+}
+
+.bgcolor a:link{color: white !important;}
+.bgcolor a:visited{color: white !important;}
+.bgcolor a:hover{color: rgb(250,226,180) !important;}
+.bgcolor a:active{color: white !important;}
+
+.bgcolor .bgcolor2 a:link{color: black !important;}
+.bgcolor .bgcolor2 a:visited{color: black !important;}
+.bgcolor .bgcolor2 a:hover{color: rgb(250,226,180) !important;}
+.bgcolor .bgcolor2 a:active{color: black !important;}
+
+a:visited {
+    color: rgb(104,88,91) !important;
+}
+a {
+    color: rgb(104,88,91) !important;
+}
+.dropdown-item:hover, .dropdown-item:focus {
+    background-color: rgb(104,88,91) !important;
+}
+
+.dropdown-item.active, .dropdown-item:active {
+    background-color: #007bff;
+}
+
+.h1{
+    font-family: 'Kirang Haerang' !important;
+}
+
+
+.min-vh-80 {
+    min-height: 80vh; }
+td{
+    font-size:13px !important;
+    text-align: left !important;
+    font-family: 'Open Sans' !important;
+    text-color: #393939 !important;
+    font-weight:300 !important;
+}
+th{
+    font-size:15px !important;
+    font-family: 'Open Sans' !important;
+}
+#scrollUp {
+    background-image: url("https://2019.igem.org/wiki/images/5/5c/T--Fudan--Top.png");
+    bottom: 20px;
+    right: 20px;
+    width: 38px;    /* Width of image */
+    height: 38px;   /* Height of image */
+}
+@font-face {
+    font-family: 'arciform';
+    src:url('https://2019.igem.org/File:T--Fudan--arciform.OTF') format('otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.foot a:link{
+    color: white !important;
+}
+.foot a:visited{
+    color: white !important;
+}
+.foot a:hover{
+    color:rgba(254,255,157,0.9) !important;
+}
+.foot a:active{
+    color: white !important;
+}
+.dropdown-item a:visited{color:black;}
+#globalWrapper{
+    padding: 0px;
+}
+
+#top_title{
+    display:none;
+}
+
+#content{
+    margin:0;
+    width:100%;
+    background-color: rgb(255,227,232);
+}
+
+
+
+a.nav-link{
+    padding:10px 16px !important;
+
+}
+
+p {
+    font-size:18px !important;
+    text-align: left !important;
+    font-family: 'Open Sans' !important;
+    text-color: #393939 !important;
+    font-weight:300 !important;
+}
+
+h4{
+    font-size:40px !important;
+    line-height:36px !important;
+    padding-top:26px !important;
+    padding-bottom:8px !important;
+    color: #393939 !important;
+    font-family: 'Josefin Sans' !important;
+    font-weight: 700  !important;
+    margin-bottom: 0.8em !important;
+}
+
+h5{
+    font-size:28px !important;
+    line-height:36px !important;
+    padding-top:26px !important;
+    padding-bottom:8px !important;
+    color: #393939 !important;
+    font-family: 'Josefin Sans' !important;
+    font-weight: 400  !important;
+    margin-bottom: 0.8em !important;
+}
+h6{
+    font-size: 14px !important;
+    line-height: 1.7 !important;
+    color: #797979 !important;
+    font-weight: 400 !important;
+    text-align: left !important;
+    font-family: 'Open Sans' !important;
+}
+
+
+
+.carousel slide img{
+    height: 900px;
+}
+
+
+.hover-arrow:after {
+    display: inline-block;
+    margin-left: .375rem;
+    transition: transform 0.2s ease;
+    content: '->';
+}
+
+.hover-arrow:hover:after {
+    transform: translate3d(6px, 0, 0);
+}
+
+body.fade-page {
+    opacity: 0;
+}
+
+.bg-primary-3 {
+    background-color: #1B1F3B !important; }
+
+::selection{background-color:rgba(254,255,157,0.9);color:black;text-shadow: none;}
+
+.target-fix{
+    position: relative;
+    top: -60px;
+    display: block;
+}
+
+#content{
+    margin:0;
+    padding:0;
+    width:100%;
+}
+
+#globalWrapper{
+    padding: 0px;
+}
