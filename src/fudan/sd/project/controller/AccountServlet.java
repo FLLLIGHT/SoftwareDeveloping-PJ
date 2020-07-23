@@ -62,6 +62,7 @@ public class AccountServlet extends HttpServlet {
         //todo: 提示登录成功或登录失败
         //todo: 数据传输加密
         if(user == null){
+            request.setAttribute("loginStatus", "false");
             request.getRequestDispatcher("/jsp/login.jsp").forward(request, response);
             return;
         }

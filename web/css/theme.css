@@ -197,3 +197,7 @@ body.fade-page {
 #globalWrapper{
     padding: 0px;
 }
+
+.body{
+    background: rgb(255,227,232);
+}
