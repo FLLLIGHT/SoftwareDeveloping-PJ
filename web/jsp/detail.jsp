@@ -32,10 +32,10 @@ description: ${requestScope.image.description}
 image: <img src="../images/${requestScope.image.path}">
 <br/>
 <c:if test="${!requestScope.isCollected}">
-    <a href="/SoftwareDeveloping_PJ_war_exploded/image/collectImage?imageId=${requestScope.image.imageId}">collect</a>
+    <a href="/SoftwareDeveloping_PJ_war_exploded/image/authority/collectImage?imageId=${requestScope.image.imageId}">collect</a>
 </c:if>
 <c:if test="${requestScope.isCollected}">
-    <a href="/SoftwareDeveloping_PJ_war_exploded/image/removeCollectedImage?imageId=${requestScope.image.imageId}">remove</a>
+    <a href="/SoftwareDeveloping_PJ_war_exploded/image/authority/removeCollectedImage?imageId=${requestScope.image.imageId}">remove</a>
 </c:if>
 <br/>
 <br/>
@@ -52,7 +52,7 @@ image: <img src="../images/${requestScope.image.path}">
                 </button>
             </div>
             <div class="toast-body">
-                There is something wrong with your username or password, please check again!
+                Enjoy your journey in our website!
             </div>
         </div>
     </div>
@@ -61,12 +61,16 @@ image: <img src="../images/${requestScope.image.path}">
 <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/jquery.min.js"></script>
 <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/popper.min.js"></script>
 <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/bootstrap.js"></script>
+<script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/jquerysession.js"></script>
+<script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/theme.js"></script>
 
 <script>
     $(function () {
         let status = '${requestScope.loginStatus}';
         if(status==="true"){
-            $('#toast-2').toast('show');
+            $.session.set("loginStatus", "true");
+            alert(${requestScope.pageBeforeLogin});
+            $(location).attr('href', "${requestScope.pageBeforeLogin}");
         }
     })
 </script>

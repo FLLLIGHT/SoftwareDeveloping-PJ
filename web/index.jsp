@@ -60,13 +60,15 @@
   <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/jquery.min.js"></script>
   <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/popper.min.js"></script>
   <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/bootstrap.js"></script>
-
+  <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/jquerysession.js"></script>
+  <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/theme.js"></script>
 
   <script>
     $(function () {
       let status = '${requestScope.loginStatus}';
       if(status==="true"){
-        $('#toast-2').toast('show');
+        $.session.set("loginStatus", "true");
+        $(location).attr('href', "${requestScope.pageBeforeLogin}");
       }
     })
   </script>

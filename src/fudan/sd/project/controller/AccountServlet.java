@@ -68,12 +68,16 @@ public class AccountServlet extends HttpServlet {
         }
         HttpSession session = request.getSession();
         session.setAttribute("user", user);
-        String pageBeforeLogin = session.getAttribute("pageBeforeLogin").toString();
-        request.setAttribute("loginStatus","true");
+        Object pageBeforeLogin = session.getAttribute("pageBeforeLogin");
+        request.setAttribute("loginStatus", "true");
+
         if(pageBeforeLogin!=null){
+            String page = pageBeforeLogin.toString();
+            request.setAttribute("pageBeforeLogin", "/SoftwareDeveloping_PJ_war_exploded"+page);
             session.removeAttribute("pageBeforeLogin");
-            request.getRequestDispatcher(pageBeforeLogin).forward(request, response);
+            request.getRequestDispatcher(page).forward(request, response);
         }else {
+            request.setAttribute("pageBeforeLogin", "/SoftwareDeveloping_PJ_war_exploded/index.jsp");
             request.getRequestDispatcher("/index.jsp").forward(request, response);
         }
     }

@@ -76,7 +76,8 @@
     $(function () {
         let status = '${requestScope.loginStatus}';
         if(status==="true"){
-            $('#toast-2').toast('show');
+            $.session.set("loginStatus", "true");
+            $(location).attr('href', "${requestScope.pageBeforeLogin}");
         }
     })
 </script>
