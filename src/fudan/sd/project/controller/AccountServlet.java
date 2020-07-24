@@ -39,7 +39,7 @@ public class AccountServlet extends HttpServlet {
         }
     }
 
-    private void register(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    private void register(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String email = request.getParameter("email");
         String userName = request.getParameter("userName");
         String password = request.getParameter("pass");
@@ -50,6 +50,10 @@ public class AccountServlet extends HttpServlet {
             accountService.doRegister(user);
             HttpSession session = request.getSession();
             session.setAttribute("user", user);
+        }else{
+            request.setAttribute("message", "userNameRepeated");
+            request.getRequestDispatcher("/jsp/register.jsp").forward(request, response);
+            return;
         }
 
         response.sendRedirect("/SoftwareDeveloping_PJ_war_exploded/index.jsp");

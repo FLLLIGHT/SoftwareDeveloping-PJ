@@ -69,7 +69,6 @@ image: <img src="../images/${requestScope.image.path}">
         let status = '${requestScope.loginStatus}';
         if(status==="true"){
             $.session.set("loginStatus", "true");
-            alert(${requestScope.pageBeforeLogin});
             $(location).attr('href', "${requestScope.pageBeforeLogin}");
         }
     })

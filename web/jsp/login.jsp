@@ -46,7 +46,7 @@
                         <h1 class="mb-1">Welcome back</h1>
                         <span>Enter your account details below</span>
                     </div>
-                    <form action="/SoftwareDeveloping_PJ_war_exploded/account/login" method="post">
+                    <form action="/SoftwareDeveloping_PJ_war_exploded/account/login" method="post" id="formLogin">
                         <div class="form-group">
                             <input type="text" name="userName" id="userName" placeholder="User Name" class="form-control" value="${param.userName}">
                         </div>
