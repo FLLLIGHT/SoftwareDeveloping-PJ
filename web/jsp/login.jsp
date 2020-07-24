@@ -77,15 +77,14 @@
     <div style="position: absolute; top: 0; right: 0;">
         <div id="toast-1" class="toast" role="alert" data-delay="5000">
             <div class="toast-header">
-                <img src="#" class="avatar mr-2 avatar-sm" alt="Avatar image for male 5">
-                <strong class="mr-auto">Toast Message 1</strong>
+                <strong class="mr-auto">Login Fail</strong>
                 <small>Just now</small>
                 <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="toast-body">
-                Hello, world! This toast will disappear in 5 seconds.
+                There is something wrong with your username or password, please check again!
             </div>
         </div>
     </div>

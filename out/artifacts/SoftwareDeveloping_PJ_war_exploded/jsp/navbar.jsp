@@ -29,7 +29,7 @@
 
             <c:if test="${sessionScope.user==null}">
                 <li class="nav-item active bgcolor">
-                    <a class="nav-link" href="/SoftwareDeveloping_PJ_war_exploded/jsp/login.jsp">Login <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/SoftwareDeveloping_PJ_war_exploded/account/jumpToLogin">Login <span class="sr-only">(current)</span></a>
                 </li>
 
                 <li class="nav-item active bgcolor">
@@ -48,6 +48,8 @@
                         <a class="dropdown-item" href="/SoftwareDeveloping_PJ_war_exploded/jsp/upload.jsp">upload</a>
                         <a class="dropdown-item" href="/SoftwareDeveloping_PJ_war_exploded/image/queryUploadedImages">profile</a>
                         <a class="dropdown-item" href="/SoftwareDeveloping_PJ_war_exploded/friend/jumpToFriendPage">friend</a>
+                        <a class="dropdown-item" href="/SoftwareDeveloping_PJ_war_exploded/account/logout">logout</a>
+
                     </div>
                 </li>
             </c:if>

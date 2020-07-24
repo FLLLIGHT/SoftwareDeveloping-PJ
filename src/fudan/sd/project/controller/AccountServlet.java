@@ -68,7 +68,30 @@ public class AccountServlet extends HttpServlet {
         }
         HttpSession session = request.getSession();
         session.setAttribute("user", user);
-        response.sendRedirect("/SoftwareDeveloping_PJ_war_exploded/index.jsp");
+        String pageBeforeLogin = session.getAttribute("pageBeforeLogin").toString();
+        request.setAttribute("loginStatus","true");
+        if(pageBeforeLogin!=null){
+            session.removeAttribute("pageBeforeLogin");
+            request.getRequestDispatcher(pageBeforeLogin).forward(request, response);
+        }else {
+            request.getRequestDispatcher("/index.jsp").forward(request, response);
+        }
+    }
+
+    public void jumpToLogin(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        String pageBeforeLogin = request.getHeader("Referer");
+        pageBeforeLogin = pageBeforeLogin.substring(pageBeforeLogin.indexOf("/SoftwareDeveloping_PJ_war_exploded")+35);
+        HttpSession session = request.getSession();
+        session.setAttribute("pageBeforeLogin", pageBeforeLogin);
+        response.sendRedirect("/SoftwareDeveloping_PJ_war_exploded/jsp/login.jsp");
+    }
+
+    public void logout(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        HttpSession session = request.getSession();
+        session.removeAttribute("user");
+        String page = request.getHeader("Referer");
+        page = page.substring(page.indexOf("/SoftwareDeveloping_PJ_war_exploded"));
+        response.sendRedirect(page);
     }
 
 
