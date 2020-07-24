@@ -5,6 +5,8 @@ import fudan.sd.project.entity.User;
 import fudan.sd.project.service.AccountService;
 import fudan.sd.project.service.FriendService;
 import fudan.sd.project.service.ImageService;
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileItemFactory;
 import org.apache.commons.fileupload.FileUploadException;
@@ -49,12 +51,24 @@ public class ImageServlet extends HttpServlet {
         String search = request.getParameter("search");
         String select = request.getParameter("select");
         String sort = request.getParameter("sort");
-
         List<Image> images = imageService.queryImages(search, select, sort);
 
         request.setAttribute("images", images);
 
         request.getRequestDispatcher("/jsp/search.jsp").forward(request, response);
+    }
+
+    private void ajaxQueryImage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        String search = request.getParameter("search");
+        String select = request.getParameter("select");
+        String sort = request.getParameter("sort");
+        List<Image> images = imageService.queryImages(search, select, sort);
+
+        images = imageService.parseDate(images);
+        JSONArray strMapJson = JSONArray.fromObject(images);
+        System.out.println(strMapJson);
+
+        response.getWriter().print(strMapJson);
     }
 
     private void queryImageDetail(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {

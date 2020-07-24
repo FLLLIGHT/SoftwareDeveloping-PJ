@@ -15,6 +15,7 @@ public class Image {
     private String country;
     private String city;
     private String author;
+    private String tip;
 
     public Image() {
         //constructor without parameter
@@ -128,6 +129,14 @@ public class Image {
 
     public void setAuthor(String author) {
         this.author = author;
+    }
+
+    public String getTip() {
+        return tip;
+    }
+
+    public void setTip(String tip) {
+        this.tip = tip;
     }
 
     @Override

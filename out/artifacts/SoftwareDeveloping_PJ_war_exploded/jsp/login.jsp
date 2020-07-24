@@ -84,7 +84,7 @@
                 </button>
             </div>
             <div class="toast-body">
-                There is something wrong with your username or password, please check again!
+                There is something wrong with your username or password, please check and try again!
             </div>
         </div>
     </div>

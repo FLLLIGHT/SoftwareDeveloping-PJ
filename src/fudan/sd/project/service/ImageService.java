@@ -162,4 +162,11 @@ public class ImageService {
     public void removeUploadedImage(int imageId){
         imageDAO.delete(imageId);
     }
+
+    public List<Image> parseDate(List<Image> images){
+        for(Image image : images){
+            image.setTip(image.getDateLastModified().toString());
+        }
+        return images;
+    }
 }
