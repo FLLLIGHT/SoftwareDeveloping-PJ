@@ -6,6 +6,7 @@ import fudan.sd.project.entity.Image;
 import fudan.sd.project.entity.Page;
 import org.apache.commons.fileupload.FileItem;
 
+import javax.servlet.http.HttpSession;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -177,5 +178,21 @@ public class ImageService {
             newImages.add(oldImages.get(i));
         }
         return newImages;
+    }
+
+    public void setFootprint(HttpSession session, Image image){
+        List<Image> footprint = (List<Image>) session.getAttribute("footprint");
+        if(footprint==null){
+            footprint = new ArrayList<>();
+        }
+        footprint.removeIf(image1 -> image1.getImageId() == image.getImageId());
+        if(footprint.size()>10){
+            footprint.remove(footprint.get(0));
+        }
+        footprint.add(image);
+        for(Image image2 : footprint){
+            System.out.println(image2);
+        }
+        session.setAttribute("footprint", footprint);
     }
 }

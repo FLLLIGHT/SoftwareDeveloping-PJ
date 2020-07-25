@@ -16,12 +16,10 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.*;
 import java.io.IOException;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -103,6 +101,8 @@ public class ImageServlet extends HttpServlet {
             boolean isCollected = imageService.isCollected(uid, imageId);
             request.setAttribute("isCollected", isCollected);
         }
+
+        imageService.setFootprint(session, image);
 
         request.getRequestDispatcher("/jsp/detail.jsp").forward(request, response);
     }

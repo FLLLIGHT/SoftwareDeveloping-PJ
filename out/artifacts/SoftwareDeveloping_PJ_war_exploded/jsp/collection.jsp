@@ -1,4 +1,5 @@
-<%--
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %><%--
   Created by IntelliJ IDEA.
   User: xuanzitao
   Date: 2020/7/21
@@ -22,6 +23,25 @@
 <%@ include file="navbar.jsp"%>
 <div style="margin-top: 100px"></div>
 
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <h2>Footprint</h2>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+<c:forEach items="${sessionScope.footprint}" var="image">
+                        <li class="breadcrumb-item">
+                            <a href="/SoftwareDeveloping_PJ_war_exploded/image/queryImageDetail?imageId=${image.imageId}">${image.title}</a>
+                        </li>
+</c:forEach>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+
 
 <section>
     <div class="container" id="collectedImages">
@@ -29,8 +49,6 @@
     <div class="container" id="collectedPages">
     </div>
 </section>
-
-
 
 <%--<c:if test="${requestScope.owner!=null}">--%>
 <%--    ${requestScope.owner.userName}'s collection--%>
