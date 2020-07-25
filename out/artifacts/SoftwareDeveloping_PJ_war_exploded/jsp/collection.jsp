@@ -22,33 +22,49 @@
 <%@ include file="navbar.jsp"%>
 <div style="margin-top: 100px"></div>
 
-<c:if test="${requestScope.friend!=null}">
-    friend ${requestScope.friend.userName}'s collection
-    <br/>
-</c:if>
-<c:forEach items="${requestScope.collectedImages}" var="images">
-    id: ${images.imageId}
-    <br/>
-    title: ${images.title}
-    <br/>
-    description: ${images.description}
-    <br/>
-    <a href="/SoftwareDeveloping_PJ_war_exploded/image/queryImageDetail?imageId=${images.imageId}">detail</a>
-    <br/>
-    <c:if test="${requestScope.friend==null}">
-    <a href="/SoftwareDeveloping_PJ_war_exploded/image/removeCollectedImage?imageId=${images.imageId}">remove</a>
-    </c:if>
-    <br/>
-    image: <img src="../images/${images.path}">
-    <br/>
-    <br/>
-    <br/>
-</c:forEach>
+
+<section>
+    <div class="container" id="collectedImages">
+    </div>
+    <div class="container" id="collectedPages">
+    </div>
+</section>
+
+
+
+<%--<c:if test="${requestScope.owner!=null}">--%>
+<%--    ${requestScope.owner.userName}'s collection--%>
+<%--    <br/>--%>
+<%--</c:if>--%>
+<%--<c:forEach items="${requestScope.owner}" var="images">--%>
+<%--    id: ${images.imageId}--%>
+<%--    <br/>--%>
+<%--    title: ${images.title}--%>
+<%--    <br/>--%>
+<%--    description: ${images.description}--%>
+<%--    <br/>--%>
+<%--    <a href="/SoftwareDeveloping_PJ_war_exploded/image/queryImageDetail?imageId=${images.imageId}">detail</a>--%>
+<%--    <br/>--%>
+<%--    <c:if test="${requestScope.owner==null}">--%>
+<%--    <a href="/SoftwareDeveloping_PJ_war_exploded/image/removeCollectedImage?imageId=${images.imageId}">remove</a>--%>
+<%--    </c:if>--%>
+<%--    <br/>--%>
+<%--    image: <img src="../images/${images.path}">--%>
+<%--    <br/>--%>
+<%--    <br/>--%>
+<%--    <br/>--%>
+<%--</c:forEach>--%>
 
 
 <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/jquery.min.js"></script>
 <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/popper.min.js"></script>
 <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/bootstrap.js"></script>
+<script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/ajaxCollectedImages.js"></script>
 
+<script>
+    $(function () {
+        ajaxPage(${requestScope.owner.uid}, 1);
+    })
+</script>
 </body>
 </html>

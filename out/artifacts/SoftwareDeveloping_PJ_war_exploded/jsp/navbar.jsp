@@ -44,7 +44,7 @@
                     </a>
 
                     <div class="dropdown-menu bgcolor2" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/SoftwareDeveloping_PJ_war_exploded/image/queryCollectedImages">collection</a>
+                        <a class="dropdown-item" href="/SoftwareDeveloping_PJ_war_exploded/image/authority/queryCollectedImages">collection</a>
                         <a class="dropdown-item" href="/SoftwareDeveloping_PJ_war_exploded/jsp/upload.jsp">upload</a>
                         <a class="dropdown-item" href="/SoftwareDeveloping_PJ_war_exploded/image/authority/queryUploadedImages">profile</a>
                         <a class="dropdown-item" href="/SoftwareDeveloping_PJ_war_exploded/friend/jumpToFriendPage">friend</a>

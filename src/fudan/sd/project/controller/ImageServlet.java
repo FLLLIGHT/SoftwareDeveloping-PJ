@@ -70,7 +70,7 @@ public class ImageServlet extends HttpServlet {
 
         int pageNo = Integer.parseInt(request.getParameter("page"));
         int pageSize = 6;
-        int totalPages = images.size() / pageSize + 1;
+        int totalPages = (images.size()-1) / pageSize + 1;
 
         Page page = new Page(pageNo, totalPages, pageSize);
 
@@ -136,7 +136,12 @@ public class ImageServlet extends HttpServlet {
         image.setHeat(image.getHeat()-1);
         imageService.saveImage(image);
 
-        response.sendRedirect("/SoftwareDeveloping_PJ_war_exploded/index.jsp");
+        Map<String, Object> map = new HashMap<String, Object>(1);
+        map.put("uid", uid);
+        JSONObject strMapJson = JSONObject.fromObject(map);
+        response.getWriter().print(strMapJson);
+
+//        response.sendRedirect("/SoftwareDeveloping_PJ_war_exploded/jsp/collection.jsp");
     }
 
     private void queryCollectedImages(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -148,12 +153,37 @@ public class ImageServlet extends HttpServlet {
         if(request.getParameter("friendId")!=null){
             uid = Integer.parseInt(request.getParameter("friendId"));
             User friend = friendService.getUser(uid);
-            request.setAttribute("friend", friend);
+            request.setAttribute("owner", friend);
+        }else{
+            request.setAttribute("owner", user);
         }
-
-        request.setAttribute("collectedImages", imageService.getCollectedImages(uid));
+//        request.setAttribute("collectedImages", imageService.getCollectedImages(uid));
 
         request.getRequestDispatcher("/jsp/collection.jsp").forward(request, response);
+    }
+
+    private void ajaxQueryCollectedImages(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int uid = Integer.parseInt(request.getParameter("uid"));
+        List<Image> images = imageService.getCollectedImages(uid);
+
+        int pageNo = Integer.parseInt(request.getParameter("page"));
+        int pageSize = 6;
+        int totalPages = (images.size()-1) / pageSize + 1;
+
+        Page page = new Page(pageNo, totalPages, pageSize);
+
+        images = imageService.getLimitedImages(images, page);
+        images = imageService.parseDate(images);
+
+        Map<String, Object> map = new HashMap<String, Object>(2);
+        map.put("page", JSONObject.fromObject(page));
+        map.put("data", JSONArray.fromObject(images));
+        map.put("uid", uid);
+        JSONObject strMapJson = JSONObject.fromObject(map);
+//        System.out.println(strMapJson);
+
+        response.getWriter().print(strMapJson);
+
     }
 
     private void uploadImage(HttpServletRequest request, HttpServletResponse response) throws FileUploadException, IOException {

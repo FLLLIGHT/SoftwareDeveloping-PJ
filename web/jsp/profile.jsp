@@ -62,7 +62,9 @@
 <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/redirect.js"></script>
 
 <script>
-    ajaxPage(1);
+    $(function () {
+        ajaxPage(1);
+    })
 </script>
 </body>
 </html>
