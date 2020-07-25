@@ -120,7 +120,24 @@ public class ImageServlet extends HttpServlet {
         image.setHeat(image.getHeat()+1);
         imageService.saveImage(image);
 
-        response.sendRedirect("/SoftwareDeveloping_PJ_war_exploded/index.jsp");
+        response.sendRedirect("/SoftwareDeveloping_PJ_war_exploded/image/queryImageDetail?imageId="+imageId);
+    }
+
+    private void removeCollectedImageWithoutAjax(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        int imageId = Integer.parseInt(request.getParameter("imageId"));
+
+        HttpSession session = request.getSession();
+        User user = (User)session.getAttribute("user");
+        int uid = user.getUid();
+
+        imageService.removeCollectedImage(uid, imageId);
+
+        Image image = imageService.getImage(imageId);
+        image.setHeat(image.getHeat()-1);
+        imageService.saveImage(image);
+
+        response.sendRedirect("/SoftwareDeveloping_PJ_war_exploded/image/queryImageDetail?imageId="+imageId);
+
     }
 
     private void removeCollectedImage(HttpServletRequest request, HttpServletResponse response) throws IOException {

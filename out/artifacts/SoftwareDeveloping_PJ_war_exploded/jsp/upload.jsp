@@ -47,6 +47,15 @@
 
 </form>
 
+<select name="country" class="countries order-alpha" id="countryId">
+    <option value="China">Select Country</option>
+</select>
+<select name="state" class="states order-alpha" id="stateId">
+    <option value="">Select State</option>
+</select>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="//geodata.solutions/includes/countrystate.js"></script>
 
 <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/jquery.min.js"></script>
 <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/popper.min.js"></script>
