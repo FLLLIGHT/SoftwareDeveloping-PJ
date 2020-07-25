@@ -28,8 +28,8 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-10 col-xl-8">
-                <h1 class="h2">Search the Knowledgebase</h1>
-                <form action="/SoftwareDeveloping_PJ_war_exploded/image/queryImage" method="post">
+                <h1 class="h2">Search Images</h1>
+                <form onsubmit="return submitForm()">
                     <div class="input-group input-group-lg mb-3">
                         <div class="input-group-prepend">
                   <span class="input-group-text" id="basic-addon-1">
@@ -45,7 +45,7 @@
                     </svg>
                   </span>
                         </div>
-                        <input type="search" name="search" class="form-control" placeholder="Search for articles" aria-label="Search" aria-describedby="basic-addon-1">
+                        <input type="search" id='search' name="search" class="form-control" placeholder="Search for images" aria-label="Search" aria-describedby="basic-addon-1">
                     </div>
 
                     <div class="d-flex text-small" style="height: 30px">
@@ -151,45 +151,46 @@
 <%--            </div>--%>
 <%--        </div>--%>
     </div>
+    <div class="container" id="pageResults">
+<%--        <div class="row justify-content-between align-items-center">--%>
+<%--            <div class="col-auto">--%>
+<%--                <a href="#" class="btn btn-outline-white" onclick="ajaxPage('ar', 'heat', 'title', 1)">Previous</a>--%>
+<%--            </div>--%>
+<%--            <div class="col-auto">--%>
+<%--                <nav>--%>
+<%--                    <ul class="pagination mb-0">--%>
+<%--                        <li class="page-item active"><a class="page-link" href="#" onclick="ajaxPage('ar', 'heat', 'title', 1)">1</a>--%>
+<%--                        </li>--%>
+<%--                        <li class="page-item"><a class="page-link" href="#" onclick="ajaxPage('ar', 'heat', 'title', 2)">2</a>--%>
+<%--                        </li>--%>
+<%--                        <li class="page-item"><a class="page-link" href="#" onclick="ajaxPage('ar', 'heat', 'title', 3)">3</a>--%>
+<%--                        </li>--%>
+<%--                    </ul>--%>
+<%--                </nav>--%>
+<%--            </div>--%>
+<%--            <div class="col-auto">--%>
+<%--                <a href="#" class="btn btn-outline-white" onclick="ajaxPage('ar', 'heat', 'title', 1)">Next</a>--%>
+<%--            </div>--%>
+<%--        </div>--%>
+    </div>
 </section>
 
 
 
-<div class="row justify-content-between align-items-center">
-    <div class="col-auto">
-        <a href="#" class="btn btn-outline-white">Previous</a>
-    </div>
-    <div class="col-auto">
-        <nav>
-            <ul class="pagination mb-0">
-                <li class="page-item active"><a class="page-link" href="#">1</a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">2</a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">3</a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-    <div class="col-auto">
-        <a href="#" class="btn btn-outline-white">Next</a>
-    </div>
-</div>
-
-<c:forEach items="${requestScope.images}" var="images">
-    id: ${images.imageId}
-    <br/>
-    title: ${images.title}
-    <br/>
-    description: ${images.description}
-    <br/>
-    <a href="/SoftwareDeveloping_PJ_war_exploded/image/queryImageDetail?imageId=${images.imageId}">detail</a>
-    <br/>
-    image: <img src="../images/${images.path}">
-    <br/>
-    <br/>
-    <br/>
-</c:forEach>
+<%--<c:forEach items="${requestScope.images}" var="images">--%>
+<%--    id: ${images.imageId}--%>
+<%--    <br/>--%>
+<%--    title: ${images.title}--%>
+<%--    <br/>--%>
+<%--    description: ${images.description}--%>
+<%--    <br/>--%>
+<%--    <a href="/SoftwareDeveloping_PJ_war_exploded/image/queryImageDetail?imageId=${images.imageId}">detail</a>--%>
+<%--    <br/>--%>
+<%--    image: <img src="../images/${images.path}">--%>
+<%--    <br/>--%>
+<%--    <br/>--%>
+<%--    <br/>--%>
+<%--</c:forEach>--%>
 
 
 <div aria-live="polite" aria-atomic="true" style="position: fixed; top: 120px; right: 20px; min-height: 200px; width: 30%">
@@ -225,9 +226,6 @@
             $.session.set("loginStatus", "true");
             $(location).attr('href', "${requestScope.pageBeforeLogin}");
         }
-
-        ajaxPage("ar", "heat", "title", "1");
-
     })
 </script>
 </body>

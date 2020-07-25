@@ -1,6 +1,7 @@
 package fudan.sd.project.controller;
 
 import fudan.sd.project.entity.Image;
+import fudan.sd.project.entity.Page;
 import fudan.sd.project.entity.User;
 import fudan.sd.project.service.AccountService;
 import fudan.sd.project.service.FriendService;
@@ -21,7 +22,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.lang.reflect.Method;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ImageServlet extends HttpServlet {
 
@@ -64,8 +67,22 @@ public class ImageServlet extends HttpServlet {
         String sort = request.getParameter("sort");
         List<Image> images = imageService.queryImages(search, select, sort);
 
+        int pageNo = Integer.parseInt(request.getParameter("page"));
+        int pageSize = 6;
+        int totalPages = images.size() / pageSize + 1;
+
+        Page page = new Page(pageNo, totalPages, pageSize);
+
+        images = imageService.getLimitedImages(images, page);
         images = imageService.parseDate(images);
-        JSONArray strMapJson = JSONArray.fromObject(images);
+
+        Map<String, Object> map = new HashMap<String, Object>(2);
+        map.put("page", JSONObject.fromObject(page));
+        map.put("data", JSONArray.fromObject(images));
+        map.put("search", search);
+        map.put("sort", sort);
+        map.put("select", select);
+        JSONObject strMapJson = JSONObject.fromObject(map);
         System.out.println(strMapJson);
 
         response.getWriter().print(strMapJson);

@@ -3,6 +3,7 @@ package fudan.sd.project.service;
 import fudan.sd.project.dao.ImageDAO;
 import fudan.sd.project.dao.ImageDAOJdbcImpl;
 import fudan.sd.project.entity.Image;
+import fudan.sd.project.entity.Page;
 import org.apache.commons.fileupload.FileItem;
 
 import java.io.FileOutputStream;
@@ -168,5 +169,13 @@ public class ImageService {
             image.setTip(image.getDateLastModified().toString());
         }
         return images;
+    }
+
+    public List<Image> getLimitedImages(List<Image> oldImages, Page page){
+        List<Image> newImages = new ArrayList<>();
+        for(int i=(page.getPageNo()-1)*page.getPageSize(); i<page.getPageNo()*page.getPageSize()&&i<oldImages.size(); i++){
+            newImages.add(oldImages.get(i));
+        }
+        return newImages;
     }
 }
