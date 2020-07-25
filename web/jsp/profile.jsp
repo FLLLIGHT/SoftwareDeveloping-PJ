@@ -22,28 +22,45 @@
 <%@ include file="navbar.jsp"%>
 <div style="margin-top: 100px"></div>
 
-<c:forEach items="${requestScope.uploadedImages}" var="images">
-    id: ${images.imageId}
-    <br/>
-    title: ${images.title}
-    <br/>
-    description: ${images.description}
-    <br/>
-    <a href="/SoftwareDeveloping_PJ_war_exploded/image/queryImageDetail?imageId=${images.imageId}">detail</a>
-    <br/>
-    <a href="/SoftwareDeveloping_PJ_war_exploded/image/jumpToEditUploadedImage?imageId=${images.imageId}">edit</a>
-    <br/>
-    <a href="/SoftwareDeveloping_PJ_war_exploded/image/removeUploadedImage?imageId=${images.imageId}">remove</a>
-    <br/>
-    image: <img src="../images/${images.path}">
-    <br/>
-    <br/>
-    <br/>
-</c:forEach>
+<div class="m-1" id="modal">
+</div>
+
+<section>
+    <div class="container" id="uploadedImages">
+    </div>
+    <div class="container" id="uploadedPages">
+    </div>
+</section>
+
+
+
+
+<%--<c:forEach items="${requestScope.uploadedImages}" var="images">--%>
+<%--    id: ${images.imageId}--%>
+<%--    <br/>--%>
+<%--    title: ${images.title}--%>
+<%--    <br/>--%>
+<%--    description: ${images.description}--%>
+<%--    <br/>--%>
+<%--    <a href="/SoftwareDeveloping_PJ_war_exploded/image/queryImageDetail?imageId=${images.imageId}">detail</a>--%>
+<%--    <br/>--%>
+<%--    <a href="/SoftwareDeveloping_PJ_war_exploded/image/jumpToEditUploadedImage?imageId=${images.imageId}">edit</a>--%>
+<%--    <br/>--%>
+<%--    <a href="/SoftwareDeveloping_PJ_war_exploded/image/removeUploadedImage?imageId=${images.imageId}">remove</a>--%>
+<%--    <br/>--%>
+<%--    image: <img src="/SoftwareDeveloping_PJ_war_exploded/images/${images.path}">--%>
+<%--    <br/>--%>
+<%--    <br/>--%>
+<%--    <br/>--%>
+<%--</c:forEach>--%>
 
 <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/jquery.min.js"></script>
 <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/popper.min.js"></script>
 <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/bootstrap.js"></script>
+<script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/ajaxUploadedImages.js"></script>
 
+<script>
+    ajaxPage(1);
+</script>
 </body>
 </html>

@@ -152,47 +152,45 @@
 <%--        </div>--%>
     </div>
     <div class="container" id="pageResults">
-
+<%--        <div class="row justify-content-between align-items-center">--%>
+<%--            <div class="col-auto">--%>
+<%--                <a href="#" class="btn btn-outline-white" onclick="ajaxPage('ar', 'heat', 'title', 1)">Previous</a>--%>
+<%--            </div>--%>
+<%--            <div class="col-auto">--%>
+<%--                <nav>--%>
+<%--                    <ul class="pagination mb-0">--%>
+<%--                        <li class="page-item active"><a class="page-link" href="#" onclick="ajaxPage('ar', 'heat', 'title', 1)">1</a>--%>
+<%--                        </li>--%>
+<%--                        <li class="page-item"><a class="page-link" href="#" onclick="ajaxPage('ar', 'heat', 'title', 2)">2</a>--%>
+<%--                        </li>--%>
+<%--                        <li class="page-item"><a class="page-link" href="#" onclick="ajaxPage('ar', 'heat', 'title', 3)">3</a>--%>
+<%--                        </li>--%>
+<%--                    </ul>--%>
+<%--                </nav>--%>
+<%--            </div>--%>
+<%--            <div class="col-auto">--%>
+<%--                <a href="#" class="btn btn-outline-white" onclick="ajaxPage('ar', 'heat', 'title', 1)">Next</a>--%>
+<%--            </div>--%>
+<%--        </div>--%>
     </div>
 </section>
 
 
 
-<%--<div class="row justify-content-between align-items-center">--%>
-<%--    <div class="col-auto">--%>
-<%--        <a href="#" class="btn btn-outline-white" onclick="ajaxPage('ar', 'heat', 'title', 1)">Previous</a>--%>
-<%--    </div>--%>
-<%--    <div class="col-auto">--%>
-<%--        <nav>--%>
-<%--            <ul class="pagination mb-0">--%>
-<%--                <li class="page-item active"><a class="page-link" href="#" onclick="ajaxPage('ar', 'heat', 'title', 1)">1</a>--%>
-<%--                </li>--%>
-<%--                <li class="page-item"><a class="page-link" href="#" onclick="ajaxPage('ar', 'heat', 'title', 2)">2</a>--%>
-<%--                </li>--%>
-<%--                <li class="page-item"><a class="page-link" href="#" onclick="ajaxPage('ar', 'heat', 'title', 3)">3</a>--%>
-<%--                </li>--%>
-<%--            </ul>--%>
-<%--        </nav>--%>
-<%--    </div>--%>
-<%--    <div class="col-auto">--%>
-<%--        <a href="#" class="btn btn-outline-white" onclick="ajaxPage('ar', 'heat', 'title', 1)">Next</a>--%>
-<%--    </div>--%>
-<%--</div>--%>
-
-<c:forEach items="${requestScope.images}" var="images">
-    id: ${images.imageId}
-    <br/>
-    title: ${images.title}
-    <br/>
-    description: ${images.description}
-    <br/>
-    <a href="/SoftwareDeveloping_PJ_war_exploded/image/queryImageDetail?imageId=${images.imageId}">detail</a>
-    <br/>
-    image: <img src="../images/${images.path}">
-    <br/>
-    <br/>
-    <br/>
-</c:forEach>
+<%--<c:forEach items="${requestScope.images}" var="images">--%>
+<%--    id: ${images.imageId}--%>
+<%--    <br/>--%>
+<%--    title: ${images.title}--%>
+<%--    <br/>--%>
+<%--    description: ${images.description}--%>
+<%--    <br/>--%>
+<%--    <a href="/SoftwareDeveloping_PJ_war_exploded/image/queryImageDetail?imageId=${images.imageId}">detail</a>--%>
+<%--    <br/>--%>
+<%--    image: <img src="../images/${images.path}">--%>
+<%--    <br/>--%>
+<%--    <br/>--%>
+<%--    <br/>--%>
+<%--</c:forEach>--%>
 
 
 <div aria-live="polite" aria-atomic="true" style="position: fixed; top: 120px; right: 20px; min-height: 200px; width: 30%">

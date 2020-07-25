@@ -15,6 +15,7 @@ public class LoginFilter extends HttpFilter {
     @Override
     protected void doFilter(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws IOException, ServletException {
         String requestURI = request.getRequestURI();
+        System.out.println("URI: "+requestURI);
         if(requestURI.contains("authority")){
             Object user = request.getSession().getAttribute("user");
             if(user == null){

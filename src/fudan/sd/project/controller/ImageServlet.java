@@ -41,6 +41,7 @@ public class ImageServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) {
         String requestURI = request.getRequestURI();
         String methodName = requestURI.substring(requestURI.lastIndexOf("/") + 1);
+        System.out.println("method name: "+methodName);
 
         try {
             Method method = getClass().getDeclaredMethod(methodName, HttpServletRequest.class, HttpServletResponse.class);
@@ -50,16 +51,16 @@ public class ImageServlet extends HttpServlet {
         }
     }
 
-    private void queryImage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String search = request.getParameter("search");
-        String select = request.getParameter("select");
-        String sort = request.getParameter("sort");
-        List<Image> images = imageService.queryImages(search, select, sort);
-
-        request.setAttribute("images", images);
-
-        request.getRequestDispatcher("/jsp/search.jsp").forward(request, response);
-    }
+//    private void queryImage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//        String search = request.getParameter("search");
+//        String select = request.getParameter("select");
+//        String sort = request.getParameter("sort");
+//        List<Image> images = imageService.queryImages(search, select, sort);
+//
+//        request.setAttribute("images", images);
+//
+//        request.getRequestDispatcher("/jsp/search.jsp").forward(request, response);
+//    }
 
     private void ajaxQueryImage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         String search = request.getParameter("search");
@@ -83,7 +84,7 @@ public class ImageServlet extends HttpServlet {
         map.put("sort", sort);
         map.put("select", select);
         JSONObject strMapJson = JSONObject.fromObject(map);
-        System.out.println(strMapJson);
+//        System.out.println(strMapJson);
 
         response.getWriter().print(strMapJson);
     }
@@ -180,9 +181,31 @@ public class ImageServlet extends HttpServlet {
         User user = (User)session.getAttribute("user");
         int uid = user.getUid();
 
-        request.setAttribute("uploadedImages", imageService.getUploadedImages(uid));
+        response.sendRedirect("/SoftwareDeveloping_PJ_war_exploded/jsp/profile.jsp");
+    }
 
-        request.getRequestDispatcher("/jsp/profile.jsp").forward(request, response);
+    private void ajaxQueryUploadedImages(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        HttpSession session = request.getSession();
+        User user = (User)session.getAttribute("user");
+        int uid = user.getUid();
+        List<Image> images = imageService.getUploadedImages(uid);
+
+        int pageNo = Integer.parseInt(request.getParameter("page"));
+        int pageSize = 6;
+        int totalPages = (images.size()-1) / pageSize + 1;
+
+        Page page = new Page(pageNo, totalPages, pageSize);
+
+        images = imageService.getLimitedImages(images, page);
+        images = imageService.parseDate(images);
+
+        Map<String, Object> map = new HashMap<String, Object>(2);
+        map.put("page", JSONObject.fromObject(page));
+        map.put("data", JSONArray.fromObject(images));
+        JSONObject strMapJson = JSONObject.fromObject(map);
+//        System.out.println(strMapJson);
+
+        response.getWriter().print(strMapJson);
     }
 
     private void jumpToEditUploadedImage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -201,6 +224,6 @@ public class ImageServlet extends HttpServlet {
         int imageId = Integer.parseInt(request.getParameter("imageId"));
         imageService.removeUploadedImage(imageId);
 
-        response.sendRedirect("/SoftwareDeveloping_PJ_war_exploded/index.jsp");
+        response.sendRedirect("/SoftwareDeveloping_PJ_war_exploded/jsp/profile.jsp");
     }
 }
