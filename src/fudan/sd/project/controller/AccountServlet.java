@@ -4,6 +4,7 @@ import fudan.sd.project.dao.UserDAO;
 import fudan.sd.project.dao.UserDAOJdbcImpl;
 import fudan.sd.project.entity.User;
 import fudan.sd.project.service.AccountService;
+import fudan.sd.project.utils.RedirectUtils;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -88,10 +89,13 @@ public class AccountServlet extends HttpServlet {
 
     public void jumpToLogin(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String pageBeforeLogin = request.getHeader("Referer");
+        //todo: ajax请求重定向的问题
+        System.out.println("page without authority: "+pageBeforeLogin);
         pageBeforeLogin = pageBeforeLogin.substring(pageBeforeLogin.indexOf("/SoftwareDeveloping_PJ_war_exploded")+35);
         HttpSession session = request.getSession();
         session.setAttribute("pageBeforeLogin", pageBeforeLogin);
-        response.sendRedirect("/SoftwareDeveloping_PJ_war_exploded/jsp/login.jsp");
+        RedirectUtils.redirect(request, response, "/SoftwareDeveloping_PJ_war_exploded/jsp/login.jsp");
+//        response.sendRedirect("/SoftwareDeveloping_PJ_war_exploded/jsp/login.jsp");
     }
 
     public void logout(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {

@@ -58,6 +58,7 @@
 <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/popper.min.js"></script>
 <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/bootstrap.js"></script>
 <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/ajaxUploadedImages.js"></script>
+<script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/redirect.js"></script>
 
 <script>
     ajaxPage(1);

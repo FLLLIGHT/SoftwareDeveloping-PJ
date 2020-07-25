@@ -58,6 +58,8 @@
 <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/popper.min.js"></script>
 <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/bootstrap.js"></script>
 <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/ajaxUploadedImages.js"></script>
+<!-- 解决ajax请求无法重定向的问题 -->
+<script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/redirect.js"></script>
 
 <script>
     ajaxPage(1);
