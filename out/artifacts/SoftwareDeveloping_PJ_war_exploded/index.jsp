@@ -20,7 +20,25 @@
   </head>
   <body>
   <%@ include file="/jsp/navbar.jsp"%>
-  <div style="margin-top: 100px"></div>
+
+  <section class="controls-inside controls-light p-0 bg-primary-3" data-flickity='{ "imagesLoaded": true, "wrapAround": true }'>
+    <c:forEach items="${requestScope.hottestImages}" var="image">
+    <div class="carousel-cell py-5">
+      <img src="/SoftwareDeveloping_PJ_war_exploded/images/${image.path}" alt="Image" class="bg-image opacity-50">
+      <div class="container">
+        <div class="row justify-content-center min-vh-70 align-items-center">
+          <div class="col-lg-10 col-xl-9">
+            <div class="text-center text-light">
+              <h1 class="display-3">${image.title}</h1>
+              <p class="lead">${image.description}</p>
+              <a href="/SoftwareDeveloping_PJ_war_exploded/image/queryImageDetail?imageId=${image.imageId}" class="btn btn-primary btn-lg">Detail</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </c:forEach>
+  </section>
 
 
   <a href="jsp/login.jsp">login</a>
@@ -61,6 +79,7 @@
   <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/popper.min.js"></script>
   <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/bootstrap.js"></script>
   <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/jquerysession.js"></script>
+  <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/flickity.js"></script>
   <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/theme.js"></script>
 
   <script>

@@ -38,7 +38,7 @@
                     <h1 class="mb-1">Upload image</h1>
                     <span>Enter your image information below</span>
                 </div>
-                <form action="/SoftwareDeveloping_PJ_war_exploded/image/uploadImage" method="post" enctype="multipart/form-data">
+                <form action="/SoftwareDeveloping_PJ_war_exploded/image/authority/uploadImage" method="post" enctype="multipart/form-data" onsubmit="return confirm('Are you sure to upload?');">
                     <div class="form-group">
                         <input type="text" name="title" placeholder="Title" class="form-control" value="${requestScope.image.title}" required>
                     </div>

@@ -195,4 +195,12 @@ public class ImageService {
         }
         session.setAttribute("footprint", footprint);
     }
+
+    public List<Image> limited3Images(List<Image> images){
+        List<Image> newImages = new ArrayList<>();
+        for(int i=0; i<3; i++){
+            newImages.add(images.get(i));
+        }
+        return newImages;
+    }
 }

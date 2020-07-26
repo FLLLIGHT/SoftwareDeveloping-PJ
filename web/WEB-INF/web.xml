@@ -33,6 +33,16 @@
         <url-pattern>/friend/*</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>homeServlet</servlet-name>
+        <servlet-class>fudan.sd.project.controller.HomeServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>homeServlet</servlet-name>
+        <url-pattern>/index.jsp</url-pattern>
+    </servlet-mapping>
+
     <filter>
         <filter-name>loginFilter</filter-name>
         <filter-class>fudan.sd.project.filter.LoginFilter</filter-class>
