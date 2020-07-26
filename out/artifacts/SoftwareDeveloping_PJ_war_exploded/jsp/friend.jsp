@@ -109,6 +109,23 @@
                 </c:forEach>
                 </tbody>
             </table>
+
+
+
+
+            <div class="col-xl-4 col-lg-5 col-md-6">
+                <div class="text-center mb-4">
+                    <h1 class="mb-1">Show Collections</h1>
+                    <span>Enter user name below</span>
+                </div>
+                <form>
+                    <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" id="customSwitch1">
+                        <label class="custom-control-label" for="customSwitch1">Toggle this switch element</label>
+                    </div>
+                </form>
+            </div>
+
         </div>
     </div>
 </section>
@@ -155,5 +172,22 @@
 <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/bootstrap.js"></script>
 <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/ajaxFriend.js"></script>
 
+<script>
+    $(function(){
+        $("#customSwitch1").click(function() {
+            if ($(this).is(":checked")== true) {
+                console.log("show");
+                ajaxSetCollection(1);
+            } else {
+                console.log("not show");
+                ajaxSetCollection(2);
+            }
+        });
+        if(${requestScope.user.state==1}){
+            document.getElementById("customSwitch1").checked = true;
+        }
+
+    })
+</script>
 </body>
 </html>

@@ -43,3 +43,22 @@ function submitForm(){
     return false;
 }
 
+
+function ajaxSetCollection(status) {
+    $.ajax({
+        type: "POST",
+        url: "/SoftwareDeveloping_PJ_war_exploded/friend/authority/setShowCollection",
+        data: {"status": status},
+        dataType: 'json',
+        beforeSend: function () {
+            //请求前
+        },
+        success: function (data) {
+
+        },
+        error: function () {
+            //error
+        }
+    })
+}
+

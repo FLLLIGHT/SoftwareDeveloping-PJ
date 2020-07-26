@@ -50,6 +50,7 @@ public class FriendServlet extends HttpServlet {
 
         request.setAttribute("friends", friends);
         request.setAttribute("friendInvitations", friendInvitations);
+        request.setAttribute("user", user);
 
         request.getRequestDispatcher("/jsp/friend.jsp").forward(request, response);
 
@@ -83,5 +84,12 @@ public class FriendServlet extends HttpServlet {
         int uid2 = Integer.parseInt(request.getParameter("uid2"));
         friendService.sendFriendInvitation(uid1, uid2);
         response.sendRedirect("/SoftwareDeveloping_PJ_war_exploded/friend/authority/jumpToFriendPage");
+    }
+
+    private void setShowCollection(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        HttpSession session = request.getSession();
+        User user = (User)session.getAttribute("user");
+        int status = Integer.parseInt(request.getParameter("status"));
+        friendService.setCollection(user, status);
     }
 }

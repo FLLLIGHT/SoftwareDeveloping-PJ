@@ -20,6 +20,13 @@ public class UserDAOJdbcImpl extends DAO<User> implements UserDAO{
     }
 
     @Override
+    public void update(User user) {
+        String sql = "UPDATE traveluser SET email = ?, userName = ?, pass = ?, state = ?, dateJoined = ?, dateLastModified = ? WHERE uid = ?";
+        update(sql, user.getEmail(), user.getUserName(), user.getPass(), user.getState(), user.getDateJoined(), user.getDateLastModified(), user.getUid());
+
+    }
+
+    @Override
     public User get(int uid) {
         String sql = "SELECT uid, email, userName, pass, state, dateJoined, dateLastModified FROM traveluser WHERE uid = ?";
         return get(sql, uid);

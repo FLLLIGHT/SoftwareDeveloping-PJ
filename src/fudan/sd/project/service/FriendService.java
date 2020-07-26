@@ -57,4 +57,9 @@ public class FriendService {
         }
         return friendInvitation;
     }
+
+    public void setCollection(User user, int status){
+        user.setState(status);
+        userDAO.update(user);
+    }
 }
