@@ -23,7 +23,6 @@ public class HomeServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("HOME");
         List<Image> hottestImages = new ArrayList<>();
         hottestImages = imageService.queryImages("", "title", "heat");
         List<Image> latestImages = new ArrayList<>();

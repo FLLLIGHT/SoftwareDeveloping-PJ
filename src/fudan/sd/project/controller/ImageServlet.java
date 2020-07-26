@@ -181,6 +181,7 @@ public class ImageServlet extends HttpServlet {
 
     private void ajaxQueryCollectedImages(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int uid = Integer.parseInt(request.getParameter("uid"));
+        User queryUser = friendService.getUser(uid);
         List<Image> images = imageService.getCollectedImages(uid);
 
         int pageNo = Integer.parseInt(request.getParameter("page"));
@@ -192,10 +193,21 @@ public class ImageServlet extends HttpServlet {
         images = imageService.getLimitedImages(images, page);
         images = imageService.parseDate(images);
 
-        Map<String, Object> map = new HashMap<String, Object>(2);
+        Map<String, Object> map = new HashMap<String, Object>(5);
         map.put("page", JSONObject.fromObject(page));
         map.put("data", JSONArray.fromObject(images));
         map.put("uid", uid);
+        map.put("username", queryUser.getUserName());
+
+        HttpSession session = request.getSession();
+        User user = (User)session.getAttribute("user");
+        if(user.getUid()!=queryUser.getUid()&&queryUser.getState()==2){
+            map.put("show", "false");
+        }else{
+            map.put("show", "true");
+        }
+
+
         JSONObject strMapJson = JSONObject.fromObject(map);
 //        System.out.println(strMapJson);
 

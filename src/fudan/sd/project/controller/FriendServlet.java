@@ -3,6 +3,7 @@ package fudan.sd.project.controller;
 import fudan.sd.project.entity.User;
 import fudan.sd.project.service.AccountService;
 import fudan.sd.project.service.FriendService;
+import net.sf.json.JSONObject;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -11,7 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.lang.reflect.Method;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class FriendServlet extends HttpServlet {
 
@@ -53,10 +56,24 @@ public class FriendServlet extends HttpServlet {
     }
 
     private void searchUser(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        String userName = request.getParameter("userName");
+        String userName = request.getParameter("search");
         User user = friendService.getUser(userName);
-        request.setAttribute("userFound", user);
-        request.getRequestDispatcher("/jsp/friend.jsp").forward(request, response);
+
+        Map<String, Object> map = new HashMap<String, Object>(4);
+        if(user==null){
+            map.put("found", "false");
+        }else {
+            map.put("found", "true");
+            map.put("username", user.getUserName());
+            map.put("email", user.getEmail());
+            map.put("uid", user.getUid());
+        }
+
+        JSONObject strMapJson = JSONObject.fromObject(map);
+        response.getWriter().print(strMapJson);
+
+//        request.setAttribute("userFound", user);
+//        request.getRequestDispatcher("/jsp/friend.jsp").forward(request, response);
     }
 
     private void sendOrAcceptFriendInvitation(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -65,6 +82,6 @@ public class FriendServlet extends HttpServlet {
         int uid1 = user.getUid();
         int uid2 = Integer.parseInt(request.getParameter("uid2"));
         friendService.sendFriendInvitation(uid1, uid2);
-        response.sendRedirect("/SoftwareDeveloping_PJ_war_exploded/index.jsp");
+        response.sendRedirect("/SoftwareDeveloping_PJ_war_exploded/friend/authority/jumpToFriendPage");
     }
 }

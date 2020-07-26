@@ -52,8 +52,8 @@ public class FriendService {
             }
             if(!accepted){
                 friendInvitation.add(userDAO.get(uidGet));
-                accepted = false;
             }
+            accepted = false;
         }
         return friendInvitation;
     }

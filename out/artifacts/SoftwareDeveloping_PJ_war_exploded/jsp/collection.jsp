@@ -44,6 +44,8 @@
 
 
 <section>
+    <div class="container" id="ownerText">
+    </div>
     <div class="container" id="collectedImages">
     </div>
     <div class="container" id="collectedPages">
