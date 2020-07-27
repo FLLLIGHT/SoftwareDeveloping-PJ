@@ -11,6 +11,7 @@
     <title>register</title>
     <link href="/SoftwareDeveloping_PJ_war_exploded/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
     <link href="/SoftwareDeveloping_PJ_war_exploded/css/theme.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="/SoftwareDeveloping_PJ_war_exploded/css/async-google-recaptcha-all.css" rel="stylesheet" type="text/css" media="all" />
 
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
@@ -58,6 +59,9 @@
                         </div>
                         <div class="form-group">
                             <input type="password" name="passwordConfirm" id="passwordConfirm" placeholder="Confirm Password" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <div class="g-recaptcha" data-callback="robotVerified" data-sitekey="6LdbvbYZAAAAAAOW7frQ-yQF0HHebGDTPMTyyoLJ"></div>
                         </div>
                         <div class="form-group">
                             <button class="btn-block btn btn-primary" type="submit">Sign in</button>
@@ -110,7 +114,7 @@
                 </button>
             </div>
             <div class="toast-body">
-                User name has been registered, please change your user name and try again.
+                ${requestScope.message}
             </div>
         </div>
     </div>
@@ -122,6 +126,7 @@
 <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/jquerysession.js"></script>
 <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/bootstrapValidator.min.js"></script>
 <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/register.js"></script>
+<script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/async-google-recaptcha.js"></script>
 <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/theme.js"></script>
 
 <script>
@@ -131,10 +136,12 @@
             $.session.set("loginStatus", "true");
             $(location).attr('href', "${requestScope.pageBeforeLogin}");
         }
-        let message = '${requestScope.message}';
-        if(message==="userNameRepeated"){
+        let message = '${requestScope.fail}';
+        if(message==="fail"){
             $('#toast-3').toast('show');
         }
+        $('.g-recaptcha').asyncReCAPTCHA({
+        })
     })
 </script>
 </body>

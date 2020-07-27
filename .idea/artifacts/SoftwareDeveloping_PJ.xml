@@ -1,0 +1,6 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="SoftwareDeveloping-PJ">
+    <output-path>$PROJECT_DIR$/../..</output-path>
+    <root id="archive" name="SoftwareDeveloping_PJ_war_exploded.war" />
+  </artifact>
+</component>

@@ -65,7 +65,7 @@
             </div>
         </div>
         <div class="row my-6 justify-content-between">
-            <div class="col-lg-7 col-xl-8 mb-3 mb-lg-0">
+            <div class="col-lg-7 col-xl-8 mb-3 mb-lg-0 pr-0 pl-0" id="zoom">
                 <img src="/SoftwareDeveloping_PJ_war_exploded/images/${requestScope.image.path}" alt="Image" class="rounded">
             </div>
             <div class="col-lg-4 col-xl-3">
@@ -151,6 +151,7 @@
 <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/popper.min.js"></script>
 <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/bootstrap.js"></script>
 <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/jquerysession.js"></script>
+<script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/jquery.zoom.js"></script>
 <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/theme.js"></script>
 
 <script>
@@ -160,6 +161,7 @@
             $.session.set("loginStatus", "true");
             $(location).attr('href', "${requestScope.pageBeforeLogin}");
         }
+        $("#zoom").zoom();
     })
 </script>
 

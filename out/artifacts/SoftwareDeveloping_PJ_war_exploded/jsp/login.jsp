@@ -13,6 +13,7 @@
     <link href="/SoftwareDeveloping_PJ_war_exploded/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
     <link href="/SoftwareDeveloping_PJ_war_exploded/css/theme.css" rel="stylesheet" type="text/css" media="all" />
     <link href="/SoftwareDeveloping_PJ_war_exploded/css/bootstrapValidator.min.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="/SoftwareDeveloping_PJ_war_exploded/css/async-google-recaptcha-all.css" rel="stylesheet" type="text/css" media="all" />
 
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
@@ -54,6 +55,9 @@
                             <input type="password" name="pass" id="pass" placeholder="Password" class="form-control">
                         </div>
                         <div class="form-group">
+                            <div class="g-recaptcha" data-callback="robotVerified" data-sitekey="6LdbvbYZAAAAAAOW7frQ-yQF0HHebGDTPMTyyoLJ"></div>
+                        </div>
+                        <div class="form-group">
                             <button class="btn-block btn btn-primary" type="submit">Sign in</button>
                         </div>
                         <div class="custom-control custom-checkbox">
@@ -73,7 +77,7 @@
 </div>
 
 
-<div aria-live="polite" aria-atomic="true" style="position: fixed; top: 120px; right: 20px; min-height: 200px; width: 100%">
+<div aria-live="polite" aria-atomic="true" style="position: fixed; top: 120px; right: 20px; min-height: 200px; width: 20%">
     <div style="position: absolute; top: 0; right: 0;">
         <div id="toast-1" class="toast" role="alert" data-delay="5000">
             <div class="toast-header">
@@ -84,7 +88,7 @@
                 </button>
             </div>
             <div class="toast-body">
-                There is something wrong with your username or password, please check and try again!
+                ${requestScope.message}
             </div>
         </div>
     </div>
@@ -94,6 +98,7 @@
 <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/popper.min.js"></script>
 <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/bootstrap.js"></script>
 <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/bootstrapValidator.min.js"></script>
+<script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/async-google-recaptcha.js"></script>
 <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/login.js"></script>
 
 <script>
@@ -102,7 +107,12 @@
         if(status==="false"){
             $('#toast-1').toast('show');
         }
+        $('.g-recaptcha').asyncReCAPTCHA({
+        })
     })
+    function robotVerified(token){
+        console.log(token);
+    }
 </script>
 </body>
 </html>

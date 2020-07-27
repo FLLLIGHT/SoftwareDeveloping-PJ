@@ -41,6 +41,14 @@ public class AccountServlet extends HttpServlet {
     }
 
     private void register(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+
+        if(request.getParameter("g-recaptcha-response").equals("")){
+            request.setAttribute("fail", "fail");
+            request.setAttribute("message", "There is something wrong with your <b>verification</b>, please check and try again!");
+            request.getRequestDispatcher("/jsp/register.jsp").forward(request, response);
+            return;
+        }
+
         String email = request.getParameter("email");
         String userName = request.getParameter("userName");
         String password = request.getParameter("pass");
@@ -52,7 +60,8 @@ public class AccountServlet extends HttpServlet {
             HttpSession session = request.getSession();
             session.setAttribute("user", user);
         }else{
-            request.setAttribute("message", "userNameRepeated");
+            request.setAttribute("fail", "fail");
+            request.setAttribute("message", "User name has been <b>registered</b>, please change your user name and try again.");
             request.getRequestDispatcher("/jsp/register.jsp").forward(request, response);
             return;
         }
@@ -64,18 +73,27 @@ public class AccountServlet extends HttpServlet {
         String userName = request.getParameter("userName");
         String pass = request.getParameter("pass");
         User user = accountService.checkUser(userName, pass);
+
         //todo: 提示登录成功或登录失败
         //todo: 数据传输加密
         if(user == null){
             request.setAttribute("loginStatus", "false");
+            request.setAttribute("message", "There is something wrong with your <b>username or password</b>, please check and try again!");
             request.getRequestDispatcher("/jsp/login.jsp").forward(request, response);
             return;
         }
+
+        if(request.getParameter("g-recaptcha-response").equals("")){
+            request.setAttribute("loginStatus", "false");
+            request.setAttribute("message", "There is something wrong with your <b>verification</b>, please check and try again!");
+            request.getRequestDispatcher("/jsp/login.jsp").forward(request, response);
+            return;
+        }
+
         HttpSession session = request.getSession();
         session.setAttribute("user", user);
         Object pageBeforeLogin = session.getAttribute("pageBeforeLogin");
         request.setAttribute("loginStatus", "true");
-
         if(pageBeforeLogin!=null){
             String page = pageBeforeLogin.toString();
             request.setAttribute("pageBeforeLogin", "/SoftwareDeveloping_PJ_war_exploded"+page);
