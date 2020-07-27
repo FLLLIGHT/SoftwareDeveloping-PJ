@@ -3,7 +3,6 @@ package fudan.sd.project.entity;
 import java.util.Date;
 
 public class User {
-    //todo:id是不是要大写
     private int uid;
     private String email;
     private String userName;

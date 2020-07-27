@@ -101,12 +101,60 @@
             </div>
         </div>
     </div>
+</section>
+
+<section class="has-divider">
+    <div class="container pt-3">
+        <div class="row justify-content-center">
+            <div class="col-xl-7 col-lg-8 col-md-10">
+                <hr>
+                <div class="d-flex"><h5 class="my-4">Comments</h5>
+                    <ul class="my-4 list-unstyled d-flex ml-2 flex-wrap" style="padding-top: 26px !important; padding-bottom: 8px !important; margin-left: auto !important;">
+                        <span class="text-muted">Sort:</span>
+                        <li class="mx-1">
+                            <div class="custom-control custom-radio mb-2">
+                                <input type="radio" id="time" name="sort" value="time" class="custom-control-input" checked="">
+                                <label class="custom-control-label" for="time">time</label>
+                            </div>
+                        </li>
+                        <li class="mx-1">
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="heat" name="sort" value="heat" class="custom-control-input">
+                                <label class="custom-control-label" for="heat">heat</label>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <ol class="comments" id="comments">
+                </ol>
+
+
+                <hr>
+                <h5 class="my-4">Post a comment</h5>
+                <form action="/SoftwareDeveloping_PJ_war_exploded/post/authority/submitPost?imageId=${requestScope.image.imageId}" method="post">
+                    <div class="form-group">
+                        <textarea class="form-control" name="post" id="post" rows="10" placeholder="Comment" required></textarea>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="comment-form-opt-in">
+                            <label class="custom-control-label text-small" for="comment-form-opt-in">Notify me when someone replies</label>
+                        </div>
+                        <button class="btn btn-primary" type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
     <div class="divider">
-        <svg width="100%" height="100%" version="1.1" viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none">
+        <svg class="bg-primary-alt" width="100%" height="100%" version="1.1" viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none">
             <path d="M0,0 C40,33 66,52 75,52 C83,52 92,33 100,0 L100,100 L0,100 L0,0 Z" fill="#ffffff"></path>
         </svg>
     </div>
 </section>
+
 
 
 
@@ -152,6 +200,8 @@
 <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/bootstrap.js"></script>
 <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/jquerysession.js"></script>
 <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/jquery.zoom.js"></script>
+<script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/ajaxPosts.js"></script>
+<script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/redirect.js"></script>
 <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/theme.js"></script>
 
 <script>
@@ -162,6 +212,15 @@
             $(location).attr('href', "${requestScope.pageBeforeLogin}");
         }
         $("#zoom").zoom();
+        ajaxPost("time", ${requestScope.image.imageId});
+
+        $("#time").click(function(){
+            ajaxPost("time", ${requestScope.image.imageId});
+        });
+
+        $("#heat").click(function(){
+            ajaxPost("heat", ${requestScope.image.imageId});
+        });
     })
 </script>
 

@@ -1,6 +1,7 @@
 package fudan.sd.project.filter;
 
 import fudan.sd.project.entity.User;
+import fudan.sd.project.utils.RedirectUtils;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -19,7 +20,8 @@ public class LoginFilter extends HttpFilter {
         if(requestURI.contains("authority")){
             Object user = request.getSession().getAttribute("user");
             if(user == null){
-                response.sendRedirect("/SoftwareDeveloping_PJ_war_exploded/account/jumpToLogin");
+                RedirectUtils.redirect(request, response, "/SoftwareDeveloping_PJ_war_exploded/account/jumpToLogin");
+//                response.sendRedirect("/SoftwareDeveloping_PJ_war_exploded/account/jumpToLogin");
                 return;
             }
         }

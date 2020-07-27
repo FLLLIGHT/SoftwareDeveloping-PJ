@@ -43,6 +43,16 @@
         <url-pattern>/index.jsp</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>postServlet</servlet-name>
+        <servlet-class>fudan.sd.project.controller.PostServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>postServlet</servlet-name>
+        <url-pattern>/post/*</url-pattern>
+    </servlet-mapping>
+
     <filter>
         <filter-name>loginFilter</filter-name>
         <filter-class>fudan.sd.project.filter.LoginFilter</filter-class>
