@@ -13,7 +13,7 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg fixed-top">
-    <a class="navbar-brand" href="#"><img src="https://2019.igem.org/wiki/images/2/29/T--Fudan--NAVLOGO.png" style="height:50px;"></img></a>
+    <a class="navbar-brand" href="/SoftwareDeveloping_PJ_war_exploded/index.jsp"><img src="/SoftwareDeveloping_PJ_war_exploded/images/LOGO.png" style="height:50px;"></img></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>

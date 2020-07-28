@@ -37,9 +37,13 @@
                 <div class="row justify-content-center min-vh-70 align-items-center">
                     <div class="col-lg-10 col-xl-9">
                         <div class="text-center text-light">
-                            <h4 class="display-3">${image.title}</h4>
+                            <h4 class="display-3" style="color: rgba(254,255,157,0.9) !important;">${image.title}</h4>
                             <h3 class="lead">${image.description}</h3>
-                            <a href="/SoftwareDeveloping_PJ_war_exploded/image/queryImageDetail?imageId=${image.imageId}" class="btn btn-primary btn-lg">Detail</a>
+                            <div class="bgcolor">
+                                <div class="bgcolor2">
+                                    <a href="/SoftwareDeveloping_PJ_war_exploded/image/queryImageDetail?imageId=${image.imageId}" class="btn btn-light btn-lg detail">Detail</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -112,7 +116,7 @@
 <%--<br/>--%>
 <%--<a href="jsp/navbar.jsp">navbar</a>--%>
 
-<div aria-live="polite" aria-atomic="true" style="position: fixed; top: 120px; right: 20px; min-height: 200px; width: 100%">
+<div aria-live="polite" aria-atomic="true" style="position: fixed; top: 120px; right: 20px; min-height: 200px; width: 20%">
     <div style="position: absolute; top: 0; right: 0;">
         <div id="toast-2" class="toast" role="alert" data-delay="5000">
             <div class="toast-header">
@@ -123,7 +127,7 @@
                 </button>
             </div>
             <div class="toast-body">
-                There is something wrong with your username or password, please check again!
+                Enjoy your journey in our website!
             </div>
         </div>
     </div>

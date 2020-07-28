@@ -8,20 +8,20 @@ $(function () {
         },
         fields: {
             userName: {
-                message: '用户名验证失败',
+                message: 'user name fail',
                 verbose: false,
                 validators: {
                     notEmpty: {
-                        message: '用户名不能为空'
+                        message: 'user name should not be empty'
                     }
                 }
             },
 
             pass: {
-                message: '密码验证失败',
+                message: 'password fail',
                 validators: {
                     notEmpty: {
-                        message: '密码不能为空'
+                        message: 'password should not be empty'
                     }
                 }
             }

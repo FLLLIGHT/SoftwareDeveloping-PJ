@@ -8,15 +8,15 @@ $(function () {
         },
         fields: {
             userName: {
-                message: '用户名验证失败',
+                message: 'username fail',
                 verbose: false,
                 validators: {
                     notEmpty: {
-                        message: '用户名不能为空'
+                        message: 'user name should not be empty'
                     },
                     regexp: {
                         regexp: /^[a-zA-Z0-9_]+$/,
-                        message: '用户名只能包含大写、小写英文字母、数字'
+                        message: 'user name should only contains characters and numbers'
                     },
                     stringLength: {
                         min: 4,
@@ -29,55 +29,55 @@ $(function () {
                 verbose: false,
                 validators: {
                     notEmpty: {
-                        message: '邮箱地址不能为空'
+                        message: 'email should not be empty'
                     },
                     regexp: {
                         regexp: /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/,
-                        message: '邮箱格式错误'
+                        message: 'email format error'
                     }
                 }
             },
             pass: {
                 verbose: false,
-                message: '密码验证失败',
+                message: 'password fail',
                 validators: {
                     notEmpty: {
-                        message: '密码不能为空'
+                        message: 'password should not be empty, please enter your password'
                     },
                     regexp: {
                         regexp: /^[a-zA-Z0-9_]+$/,
-                        message: '密码只能包含大写、小写英文字母、数字和下划线'
+                        message: 'password should only contains characters, numbers and _'
                     },
                     stringLength: {
                         min: 6,
                         max: 12,
-                        message: '弱密码！请保证在6到12位之间'
+                        message: '<b>weak!</b> password should between 6 to 12 characters'
                     },
                     identical: {
                         field: 'passwordConfirm',
-                        message: '用户新密码与确认密码不一致！请修改！'
+                        message: 'password doesn\'t agree with password confirm'
                     }
                 }
             },
             passwordConfirm: {
                 verbose: false,
-                message: '密码验证失败',
+                message: 'password fail',
                 validators: {
                     notEmpty: {
-                        message: '密码不能为空'
+                        message: 'password should not be empty, please enter your password'
                     },
                     regexp: {
                         regexp: /^[a-zA-Z0-9_]+$/,
-                        message: '密码只能包含大写、小写英文字母、数字和下划线'
+                        message: 'password should only contains characters, numbers and _'
                     },
                     stringLength: {
                         min: 6,
                         max: 12,
-                        message: '弱密码！请保证在6到12位之间'
+                        message: '<b>weak!</b> password should between 6 to 12 characters'
                     },
                     identical: {
                         field: 'pass',
-                        message: '密码不一致！'
+                        message: 'password confirm doesn\'t agree with password'
                     }
                 }
             }

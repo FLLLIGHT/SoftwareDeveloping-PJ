@@ -219,3 +219,28 @@ h3{
     margin-inline-start: 0px;
     margin-inline-end: 0px;
 }
+
+.detail:hover, .detail:focus{
+    background-color: rgb(104,88,91) !important;
+}
+
+h1{
+    color: rgb(104,88,91);
+}
+
+.bgcolor3 button{
+    color: #fff;
+    background-color: rgb(104,88,91);
+    border-color: rgb(104,88,91);
+}
+
+.bgcolor3 button:hover, .bgcolor3 button:disabled{
+    background-color: rgb(104,88,91) !important;
+    color: rgba(254,255,157,0.9);
+}
+
+.page-item.active .page-link {
+    color: rgba(254,255,157,0.9) !important;
+    background-color: rgb(104,88,91) !important;
+    border-color: rgb(104,88,91) !important;
+}

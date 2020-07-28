@@ -57,7 +57,7 @@
   <br/>
   <a href="jsp/navbar.jsp">navbar</a>
 
-  <div aria-live="polite" aria-atomic="true" style="position: fixed; top: 120px; right: 20px; min-height: 200px; width: 100%">
+  <div aria-live="polite" aria-atomic="true" style="position: fixed; top: 120px; right: 20px; min-height: 200px; width: 20%">
     <div style="position: absolute; top: 0; right: 0;">
       <div id="toast-2" class="toast" role="alert" data-delay="5000">
         <div class="toast-header">
@@ -68,7 +68,7 @@
           </button>
         </div>
         <div class="toast-body">
-          There is something wrong with your username or password, please check again!
+          Enjoy your journey in our website!
         </div>
       </div>
     </div>

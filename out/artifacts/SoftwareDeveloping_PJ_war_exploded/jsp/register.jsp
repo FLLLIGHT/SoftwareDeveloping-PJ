@@ -33,10 +33,10 @@
 <div class="container">
     <section class="min-vh-100 py-5">
         <div class="container">
-            <div class="row justify-content-center mb-md-6">
-                <div class="col-auto">
+            <div class="row justify-content-center">
+                <div class="col-3">
                     <a href="/SoftwareDeveloping_PJ_war_exploded/index.jsp">
-                        <img src="#" alt="Leap">
+                        <img src="/SoftwareDeveloping_PJ_war_exploded/images/LOGO.png" alt="Logo">
                     </a>
                 </div>
             </div>
@@ -55,7 +55,7 @@
                         </div>
                         <div class="form-group">
                             <input type="password" name="pass" id="pass" placeholder="Password" class="form-control">
-                            <small class="text-muted">Must be at least 8 characters</small>
+                            <small class="text-muted">Must be 6 to 12 characters</small>
                         </div>
                         <div class="form-group">
                             <input type="password" name="passwordConfirm" id="passwordConfirm" placeholder="Confirm Password" class="form-control">
@@ -63,14 +63,8 @@
                         <div class="form-group">
                             <div class="g-recaptcha" data-callback="robotVerified" data-sitekey="6LdbvbYZAAAAAAOW7frQ-yQF0HHebGDTPMTyyoLJ"></div>
                         </div>
-                        <div class="form-group">
-                            <button class="btn-block btn btn-primary" type="submit">Sign in</button>
-                        </div>
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="signup-agree">
-                            <label class="custom-control-label text-small text-muted" for="signup-agree">I agree to the <a href="#">Terms &amp;
-                                Conditions</a>
-                            </label>
+                        <div class="form-group bgcolor3">
+                            <button class="btn-block btn btn-primary" type="submit">Register</button>
                         </div>
                         <hr>
                         <div class="text-center text-small text-muted">
@@ -86,7 +80,7 @@
 </div>
 
 
-<div aria-live="polite" aria-atomic="true" style="position: fixed; top: 120px; right: 20px; min-height: 200px; width: 100%">
+<div aria-live="polite" aria-atomic="true" style="position: fixed; top: 120px; right: 20px; min-height: 200px; width: 20%">
     <div style="position: absolute; top: 0; right: 0;">
         <div id="toast-2" class="toast" role="alert" data-delay="5000">
             <div class="toast-header">
@@ -97,13 +91,13 @@
                 </button>
             </div>
             <div class="toast-body">
-                There is something wrong with your username or password, please check again!
+                Enjoy your journey in our website!
             </div>
         </div>
     </div>
 </div>
 
-<div aria-live="polite" aria-atomic="true" style="position: fixed; top: 120px; right: 20px; min-height: 200px; width: 100%">
+<div aria-live="polite" aria-atomic="true" style="position: fixed; top: 120px; right: 20px; min-height: 200px; width: 20%">
     <div style="position: absolute; top: 0; right: 0;">
         <div id="toast-3" class="toast" role="alert" data-delay="5000">
             <div class="toast-header">

@@ -34,10 +34,10 @@
 <div class="container">
     <section class="min-vh-100 py-5">
         <div class="container">
-            <div class="row justify-content-center mb-md-6">
-                <div class="col-auto">
+            <div class="row justify-content-center">
+                <div class="col-3">
                     <a href="/SoftwareDeveloping_PJ_war_exploded/index.jsp">
-                        <img src="#" alt="Leap">
+                        <img src="/SoftwareDeveloping_PJ_war_exploded/images/LOGO.png" alt="Logo">
                     </a>
                 </div>
             </div>
@@ -57,12 +57,8 @@
                         <div class="form-group">
                             <div class="g-recaptcha" data-callback="robotVerified" data-sitekey="6LdbvbYZAAAAAAOW7frQ-yQF0HHebGDTPMTyyoLJ"></div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group bgcolor3">
                             <button class="btn-block btn btn-primary" type="submit">Sign in</button>
-                        </div>
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="login-remember">
-                            <label class="custom-control-label text-small text-muted" for="login-remember">Keep me signed in</label>
                         </div>
                         <hr>
                         <div class="text-center text-small text-muted">
