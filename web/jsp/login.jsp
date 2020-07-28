@@ -47,7 +47,7 @@
                         <h1 class="mb-1">Welcome back</h1>
                         <span>Enter your account details below</span>
                     </div>
-                    <form action="/SoftwareDeveloping_PJ_war_exploded/account/login" method="post" id="formLogin">
+                    <form action="/SoftwareDeveloping_PJ_war_exploded/account/login" method="post" id="formLogin" onsubmit="return submitForm()">
                         <div class="form-group">
                             <input type="text" name="userName" id="userName" placeholder="User Name" class="form-control" value="${param.userName}">
                         </div>
@@ -99,6 +99,8 @@
 <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/bootstrap.js"></script>
 <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/bootstrapValidator.min.js"></script>
 <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/async-google-recaptcha.js"></script>
+<script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/md5.js"></script>
+<script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/myEncrypt.js"></script>
 <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/login.js"></script>
 
 <script>
@@ -109,6 +111,12 @@
         }
         $('.g-recaptcha').asyncReCAPTCHA({
         })
+
+        $('#formLogin').submit(function (e) {
+            if (e.isDefaultPrevented()) return false;
+            submitForm();
+        })
+
     })
     function robotVerified(token){
         console.log(token);

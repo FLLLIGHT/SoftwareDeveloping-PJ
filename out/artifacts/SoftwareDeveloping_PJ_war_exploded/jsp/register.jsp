@@ -46,7 +46,7 @@
                         <h1 class="mb-1">Create Account</h1>
                         <span>No credit card required</span>
                     </div>
-                    <form action="/SoftwareDeveloping_PJ_war_exploded/account/register" method="post" id="formRegister">
+                    <form action="/SoftwareDeveloping_PJ_war_exploded/account/register" method="post" id="formRegister" onsubmit="return submitForm()">
                         <div class="form-group">
                             <input type="text" name="userName" id="userName" placeholder="User Name" class="form-control">
                         </div>
@@ -127,6 +127,8 @@
 <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/bootstrapValidator.min.js"></script>
 <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/register.js"></script>
 <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/async-google-recaptcha.js"></script>
+<script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/md5.js"></script>
+<script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/myEncrypt.js"></script>
 <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/theme.js"></script>
 
 <script>
@@ -141,6 +143,11 @@
             $('#toast-3').toast('show');
         }
         $('.g-recaptcha').asyncReCAPTCHA({
+        })
+
+        $('#formRegister').submit(function (e) {
+            if (e.isDefaultPrevented()) return false;
+            submitForm();
         })
     })
 </script>
