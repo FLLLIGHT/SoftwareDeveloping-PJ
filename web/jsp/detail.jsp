@@ -38,27 +38,29 @@
                 </nav>
             </div>
         </div>
-        <div class="row justify-content-center my-4">
-            <div class="col-auto">
-                <img src="#" alt="Logo" class="icon icon-lg">
+        <div class="row justify-content-center mt-5 mb-5">
+            <div class="col-3">
+                <a href="/SoftwareDeveloping_PJ_war_exploded/index.jsp">
+                    <img src="/SoftwareDeveloping_PJ_war_exploded/images/LOGO.png" alt="Logo">
+                </a>
             </div>
         </div>
         <div class="row justify-content-center text-center">
             <div class="col-lg-9 col-xl-8">
                 <h4>${requestScope.image.title}</h4>
             </div>
-            <div class="col-lg-3 col-xl-4">
+            <div class="col-lg-3 col-xl-4 bgcolor4">
                 <c:if test="${!requestScope.isCollected}">
-                <a class="badge bg-primary-alt text-primary" href="/SoftwareDeveloping_PJ_war_exploded/image/authority/collectImage?imageId=${requestScope.image.imageId}">
-                    <svg class="icon bg-primary" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M16.5 5C14.8905 5 13.0082 6.82463 12 8C10.9918 6.82463 9.1095 5 7.5 5C4.651 5 3 7.22218 3 10.0504C3 13.1835 6 16.5 12 20C18 16.5 21 13.25 21 10.25C21 7.42177 19.349 5 16.5 5Z" fill="#212529"></path></svg>
+                <a class="badge bg-primary-alt text-primary" href="/SoftwareDeveloping_PJ_war_exploded/image/authority/collectImage?imageId=${requestScope.image.imageId}" style="font-size: 1.2rem; font-weight: 500;">
+                    <svg class="icon-lg bg-light uncollected" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M16.5 5C14.8905 5 13.0082 6.82463 12 8C10.9918 6.82463 9.1095 5 7.5 5C4.651 5 3 7.22218 3 10.0504C3 13.1835 6 16.5 12 20C18 16.5 21 13.25 21 10.25C21 7.42177 19.349 5 16.5 5Z" fill="white"></path></svg>
                 ${requestScope.image.heat}
                 </a>
                 </c:if>
                 <c:if test="${requestScope.isCollected}">
-                    <a class="badge bg-primary-alt text-primary" href="/SoftwareDeveloping_PJ_war_exploded/image/authority/removeCollectedImageWithoutAjax?imageId=${requestScope.image.imageId}">
-                        <svg class="icon bg-primary" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16.5 5C14.8905 5 13.0082 6.82463 12 8C10.9918 6.82463 9.1095 5 7.5 5C4.651 5 3 7.22218 3 10.0504C3 13.1835 6 16.5 12 20C18 16.5 21 13.25 21 10.25C21 7.42177 19.349 5 16.5 5Z" fill="#212529"></path></svg>
+                    <a class="badge bg-primary-alt text-primary" href="/SoftwareDeveloping_PJ_war_exploded/image/authority/removeCollectedImageWithoutAjax?imageId=${requestScope.image.imageId}" style="font-size: 1.2rem; font-weight: 500;">
+                        <svg class="icon-lg bg-primary" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="background: transparent !important;">
+                            <path class="collected" d="M16.5 5C14.8905 5 13.0082 6.82463 12 8C10.9918 6.82463 9.1095 5 7.5 5C4.651 5 3 7.22218 3 10.0504C3 13.1835 6 16.5 12 20C18 16.5 21 13.25 21 10.25C21 7.42177 19.349 5 16.5 5Z" fill="rgb(104, 88, 91)"></path></svg>
                             ${requestScope.image.heat}
                     </a>
                 </c:if>
@@ -137,21 +139,12 @@
                     <div class="form-group">
                         <textarea class="form-control" name="post" id="post" rows="10" placeholder="Comment" required></textarea>
                     </div>
-                    <div class="d-flex align-items-center justify-content-between">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="comment-form-opt-in">
-                            <label class="custom-control-label text-small" for="comment-form-opt-in">Notify me when someone replies</label>
-                        </div>
-                        <button class="btn btn-primary" type="submit">Submit</button>
+                    <div class="d-flex align-items-center justify-content-between bgcolor3">
+                        <button class="btn btn-primary ml-auto" type="submit">Submit</button>
                     </div>
                 </form>
             </div>
         </div>
-    </div>
-    <div class="divider">
-        <svg class="bg-primary-alt" width="100%" height="100%" version="1.1" viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none">
-            <path d="M0,0 C40,33 66,52 75,52 C83,52 92,33 100,0 L100,100 L0,100 L0,0 Z" fill="#ffffff"></path>
-        </svg>
     </div>
 </section>
 
@@ -194,7 +187,7 @@
         </div>
     </div>
 </div>
-
+<%@ include file="footer.jsp"%>
 <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/jquery.min.js"></script>
 <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/popper.min.js"></script>
 <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/bootstrap.js"></script>

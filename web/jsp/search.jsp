@@ -209,7 +209,15 @@
         </div>
     </div>
 </div>
-
+<footer class="pt-3 pb-2 bg-primary-3 text-light" id="footer" style="background-color: rgb(104,88,91) !important; margin-top: 10rem">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col col-md-auto text-center">
+                <small class="text-muted">©2020 This page is created by <b>Zitao</b>, all right reserved.</small>
+            </div>
+        </div>
+    </div>
+</footer>
 <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/jquery.min.js"></script>
 <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/popper.min.js"></script>
 <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/bootstrap.js"></script>

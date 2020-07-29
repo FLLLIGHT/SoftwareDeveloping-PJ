@@ -244,3 +244,28 @@ h1{
     background-color: rgb(104,88,91) !important;
     border-color: rgb(104,88,91) !important;
 }
+
+a.badge:hover{
+    color: rgba(254,255,157,0.9);
+}
+
+svg.uncollected{
+    stroke: rgb(104, 88, 91) !important;
+    stroke-width: 2;
+}
+
+.collected{
+    fill: rgb(104, 88, 91) !important;
+}
+
+.bgcolor4 a:link{fill: rgb(104, 88, 91) !important;}
+.bgcolor4 a:visited{fill: rgb(104, 88, 91) !important;}
+.bgcolor4 a:hover{color: rgb(250,226,180) !important;}
+.bgcolor4 a:active{fill: rgb(104, 88, 91) !important;}
+
+.myColor{
+    color: rgb(104,88,91) !important;;
+}
+
+a.btn-outline-white
+

@@ -30,7 +30,7 @@
         <div class="row justify-content-center pt-6">
             <div class="col-xl-4 col-lg-5 col-md-6">
                 <div class="text-center mb-4">
-                    <h1 class="mb-1">Search friends</h1>
+                    <h4 class="mb-1 myColor">Search friends</h4>
                     <span>Enter user name below</span>
                 </div>
                 <form onsubmit="return submitForm()">
@@ -53,15 +53,15 @@
                     </div>
                 </form>
             </div>
-            <table class="table table-striped" id="searchUserResults">
+            <table class="table table-striped mb-md-7" id="searchUserResults">
             </table>
 
             <div class="text-center mb-4">
-                <h1 class="mb-1">Friends</h1>
-                <span>Enter user name below</span>
+                <h4 class="mb-1 myColor">Friends</h4>
+                <span>Your friends are listed as below</span>
             </div>
 
-            <table class="table table-striped">
+            <table class="table table-striped mb-md-7">
                 <thead>
                 <tr>
                     <th scope="col">#</th>
@@ -85,11 +85,11 @@
 
 
             <div class="text-center mb-4">
-                <h1 class="mb-1">Friend Invitations</h1>
-                <span>Enter user name below</span>
+                <h4 class="mb-1 myColor">Friend Invitations</h4>
+                <span>Users sending friend invitation to you are listed as below</span>
             </div>
 
-            <table class="table table-striped">
+            <table class="table table-striped mb-md-7">
                 <thead>
                 <tr>
                     <th scope="col">#</th>
@@ -115,13 +115,13 @@
 
             <div class="col-xl-4 col-lg-5 col-md-6">
                 <div class="text-center mb-4">
-                    <h1 class="mb-1">Show Collections</h1>
-                    <span>Enter user name below</span>
+                    <h4 class="mb-1 myColor">Show Collections</h4>
+                    <span>Turn on or turn off your friends' authority to view your collections</span>
                 </div>
                 <form>
                     <div class="custom-control custom-switch">
                         <input type="checkbox" class="custom-control-input" id="customSwitch1">
-                        <label class="custom-control-label" for="customSwitch1">Toggle this switch element</label>
+                        <label class="custom-control-label" for="customSwitch1">Click to toggle and change authority</label>
                     </div>
                 </form>
             </div>
@@ -166,7 +166,7 @@
 <%--    <a href="/SoftwareDeveloping_PJ_war_exploded/friend/sendOrAcceptFriendInvitation?uid2=${invitation.uid}">accept</a>--%>
 <%--</c:forEach>--%>
 
-
+<%@ include file="footer.jsp"%>
 <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/jquery.min.js"></script>
 <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/popper.min.js"></script>
 <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/bootstrap.js"></script>

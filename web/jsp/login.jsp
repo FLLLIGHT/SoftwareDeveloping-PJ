@@ -44,7 +44,7 @@
             <div class="row justify-content-center pt-6">
                 <div class="col-xl-4 col-lg-5 col-md-6">
                     <div class="text-center mb-4">
-                        <h1 class="mb-1">Welcome back</h1>
+                        <h4 class="mb-1 myColor">Welcome back</h4>
                         <span>Enter your account details below</span>
                     </div>
                     <form action="/SoftwareDeveloping_PJ_war_exploded/account/login" method="post" id="formLogin" onsubmit="return submitForm()">
@@ -89,7 +89,7 @@
         </div>
     </div>
 </div>
-
+<%@ include file="footer.jsp"%>
 <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/jquery.min.js"></script>
 <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/popper.min.js"></script>
 <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/bootstrap.js"></script>

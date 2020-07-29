@@ -25,17 +25,17 @@
 
 <section class="min-vh-100 py-5">
     <div class="container">
-        <div class="row justify-content-center mb-md-6">
-            <div class="col-auto">
-                <a href="#">
-                    <img src="#" alt="Leap">
+        <div class="row justify-content-center">
+            <div class="col-3">
+                <a href="/SoftwareDeveloping_PJ_war_exploded/index.jsp">
+                    <img src="/SoftwareDeveloping_PJ_war_exploded/images/LOGO.png" alt="Logo">
                 </a>
             </div>
         </div>
         <div class="row justify-content-center pt-6">
             <div class="col-xl-4 col-lg-5 col-md-6">
                 <div class="text-center mb-4">
-                    <h1 class="mb-1">Upload image</h1>
+                    <h4 class="mb-1 myColor">Upload image</h4>
                     <span>Enter your image information below</span>
                 </div>
                 <form action="/SoftwareDeveloping_PJ_war_exploded/image/authority/uploadImage" method="post" enctype="multipart/form-data" onsubmit="return confirm('Are you sure to upload?');">
@@ -82,13 +82,13 @@
 
 
                     <c:if test="${requestScope.image == null}">
-                        <div class="form-group">
-                            <button class="btn-block btn btn-primary" type="submit">Submit</button>
+                        <div class="form-group bgcolor3">
+                            <button class="btn-block btn btn-primary" type="submit">Upload</button>
                         </div>
                     </c:if>
                     <c:if test="${requestScope.image != null}">
                         <input type="hidden" name="imageId" value="${requestScope.image.imageId}">
-                        <div class="form-group">
+                        <div class="form-group bgcolor3">
                             <button class="btn-block btn btn-primary" type="submit">Edit</button>
                         </div>
                     </c:if>
@@ -133,8 +133,8 @@
 <%--<select name="state" class="states order-alpha" id="stateId">--%>
 <%--    <option value="">Select State</option>--%>
 <%--</select>--%>
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<%@ include file="footer.jsp"%>
+<script src="/SoftwareDeveloping_PJ_war_exploded/js/googleJquery.js"></script>
 <script src="//geodata.solutions/includes/countrystate.js"></script>
 
 <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/jquery.min.js"></script>

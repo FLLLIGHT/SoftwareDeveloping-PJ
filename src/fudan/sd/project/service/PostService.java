@@ -37,7 +37,8 @@ public class PostService {
 
     public List<Post> parseDate(List<Post> posts){
         for(Post post : posts){
-            post.setTip(post.getDateLastModified().toString());
+            String date = post.getDateLastModified().toString();
+            post.setTip(date.substring(0, date.lastIndexOf(".")));
         }
         return posts;
     }

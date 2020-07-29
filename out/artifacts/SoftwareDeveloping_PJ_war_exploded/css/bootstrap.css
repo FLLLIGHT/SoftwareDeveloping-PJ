@@ -8269,8 +8269,8 @@ svg.icon[class*='bg-'] {
 svg.bg-white * {
     fill: #fff; }
 
-svg.bg-primary * {
-    fill: #3755BE; }
+/*svg.bg-primary * {*/
+/*    fill: #3755BE; }*/
 
 svg.bg-primary-alt * {
     fill: #f3f5fb; }
@@ -9664,7 +9664,7 @@ blockquote .btn {
     background: none !important;
     height: 6vw; }
 .divider svg:not([class*='bg']) path {
-    fill: #fff; }
+    fill: rgb(255,227,232); }
 .divider:not(:first-child) {
     top: 1px; }
 .divider:first-child {

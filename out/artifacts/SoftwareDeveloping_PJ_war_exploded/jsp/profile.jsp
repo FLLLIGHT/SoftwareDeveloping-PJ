@@ -53,7 +53,7 @@
 <%--    <br/>--%>
 <%--    <br/>--%>
 <%--</c:forEach>--%>
-
+<%@ include file="footer.jsp"%>
 <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/jquery.min.js"></script>
 <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/popper.min.js"></script>
 <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/bootstrap.js"></script>

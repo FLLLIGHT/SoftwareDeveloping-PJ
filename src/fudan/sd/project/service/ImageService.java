@@ -168,7 +168,6 @@ public class ImageService {
     public List<Image> parseDate(List<Image> images){
         for(Image image : images){
             String date = image.getDateLastModified().toString();
-            System.out.println(date);
             image.setTip(date.substring(0, date.lastIndexOf(".")));
         }
         return images;

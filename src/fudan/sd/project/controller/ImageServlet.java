@@ -205,6 +205,11 @@ public class ImageServlet extends HttpServlet {
             map.put("show", "false");
         }else{
             map.put("show", "true");
+            if(user.getUid()!=queryUser.getUid()){
+                map.put("isFriend", "true");
+            }else{
+                map.put("isFriend", "false");
+            }
         }
 
 
@@ -229,10 +234,9 @@ public class ImageServlet extends HttpServlet {
         List<FileItem> items = upload.parseRequest(request);
 
         String fileName = imageService.uploadImage(items, prefix);
-        //todo: 预显示已上传的图片
         imageService.saveImageInfo(items, uid, fileName);
 
-        response.sendRedirect("/SoftwareDeveloping_PJ_war_exploded/index.jsp");
+        response.sendRedirect("SoftwareDeveloping_PJ_war_exploded/image/authority/queryUploadedImages");
     }
 
     private void queryUploadedImages(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

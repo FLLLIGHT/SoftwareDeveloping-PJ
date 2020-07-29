@@ -56,6 +56,14 @@
 
 <section>
     <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-4 col-lg-5 col-md-6">
+                <div class="text-center mb-4">
+                    <h4 class="mb-1 myColor">Latest Images</h4>
+
+                </div>
+            </div>
+        </div>
         <div class="row mb-4">
             <c:forEach items="${requestScope.latestImages}" var="image">
             <div class="col-md-6 col-lg-4 d-flex" data-aos="fade-up" data-aos-delay="200">
@@ -134,7 +142,7 @@
 </div>
 
 
-
+<%@ include file="footer.jsp"%>
 <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/jquery.min.js"></script>
 <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/popper.min.js"></script>
 <script type="text/javascript" src="/SoftwareDeveloping_PJ_war_exploded/js/bootstrap.js"></script>
@@ -155,7 +163,14 @@
             AOS.init();
             document.removeEventListener('scroll', handler);
         }
-        document.addEventListener('scroll', handler)
+        document.addEventListener('scroll', handler);
+
+        var t,n,count = 0;
+        function showAuto(){
+            document.getElementsByClassName("next")[0].click();
+        }
+
+        t = setInterval(showAuto, 8000);
     })
 </script>
 </body>
