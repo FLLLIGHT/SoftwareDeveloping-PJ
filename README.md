@@ -1,4 +1,4 @@
->项目部署地址：http://129.211.41.182:8080/SoftwareDeveloping_PJ_war_exploded/ 
+>项目部署地址：http://129.211.41.182/SoftwareDeveloping_PJ_war_exploded/jsp/login.jsp
 >
 >项目github仓库地址：https://github.com/FLLLIGHT/SoftwareDeveloping-PJ 
 
